@@ -1,0 +1,281 @@
+## 1. 创建Conda环境
+
+  在L20服务器上进入项目：
+
+  cd /path/to/luna_prompt_model_train/yolo_inference_benchmark
+
+  创建Python 3.10环境：
+
+  conda create -n yolo-trt python=3.10 pip -y
+  conda activate /data/conda/yolo-trt
+
+  确认环境：
+
+  which python
+  python --version
+
+  预期：
+
+  .../envs/yolo-trt/bin/python
+  Python 3.10.x
+
+  升级安装工具：
+
+  python -m pip install --upgrade pip setuptools wheel
+
+  ## 2. 检查GPU驱动
+
+  nvidia-smi
+
+  你的环境应显示：
+
+  Driver Version: 535.161.07
+  CUDA Version: 12.2
+  GPU: NVIDIA L20
+
+  注意：Conda环境不会隔离NVIDIA驱动。所有Conda环境共用宿主机驱动，这是正常设计。
+
+  ## 3. 安装CUDA版PyTorch
+
+  安装CUDA 12.1版本的PyTorch：
+
+  python -m pip install \
+    torch==2.5.1 \
+    torchvision==0.20.1 \
+    --index-url https://download.pytorch.org/whl/cu121
+
+  验证：
+
+  python -c "
+  import torch
+
+  print('PyTorch:', torch.__version__)
+  print('PyTorch CUDA:', torch.version.cuda)
+  print('CUDA available:', torch.cuda.is_available())
+  print('GPU:', torch.cuda.get_device_name(0))
+  "
+
+  预期结果：
+
+  PyTorch: 2.5.1+cu121
+  PyTorch CUDA: 12.1
+  CUDA available: True
+  GPU: NVIDIA L20
+
+  nvidia-smi显示12.2，而PyTorch显示12.1是正常的：驱动12.2可以运行CUDA 12.1应用。
+
+  ## 4. 安装项目依赖
+
+  确保当前位于：
+
+  luna_prompt_model_train/yolo_inference_benchmark
+
+  执行：
+
+  python -m pip install -r requirements.txt
+  python -m pip install -e .
+
+  验证基础依赖：
+
+  python -c "
+  import cv2
+  import ultralytics
+  import onnx
+  import onnxruntime as ort
+
+  print('OpenCV:', cv2.__version__)
+  print('Ultralytics:', ultralytics.__version__)
+  print('ONNX:', onnx.__version__)
+  print('ONNX Runtime:', ort.__version__)
+  print('ORT Providers:', ort.get_available_providers())
+  "
+
+  输出必须包含：
+
+  CUDAExecutionProvider
+
+  如果只有：
+
+  CPUExecutionProvider
+
+  说明ONNX Runtime GPU相关动态库没有正常加载。
+
+  ## 5. 安装CUDA 12版TensorRT
+
+  明确安装cu12版本：
+
+  python -m pip install --upgrade tensorrt-cu12
+
+  不要安装：
+
+  pip install tensorrt
+
+  因为不带-cu12的最新版可能默认选择CUDA 13，而你的R535驱动不适合CUDA 13。
+
+  验证TensorRT：
+
+  python -c "
+  import tensorrt as trt
+
+  print('TensorRT:', trt.__version__)
+
+  logger = trt.Logger(trt.Logger.WARNING)
+  builder = trt.Builder(logger)
+
+  print('TensorRT Builder:', builder is not None)
+  "
+
+  ## 6. 运行项目环境检查
+
+  python -m yolo_benchmark.cli env
+
+  重点确认：
+
+  cuda_available: true
+  gpu: NVIDIA L20
+  ultralytics: 正常版本
+  onnxruntime: 正常版本
+  tensorrt: 正常版本
+
+  ## 7. 下载YOLO模型
+
+  python -m yolo_benchmark.cli download \
+    --model yolo11n.pt \
+    --output-dir artifacts
+
+  确认：
+
+  ls -lh artifacts/yolo11n.pt
+
+  ## 8. 测试PyTorch推理
+
+  python -m yolo_benchmark.cli infer \
+    --backend pytorch \
+    --model artifacts/yolo11n.pt \
+    --source datasets/coco8/images/val/000000000036.jpg \
+    --output results/pytorch.jpg \
+    --half
+
+  ## 9. 导出和测试ONNX
+
+  导出：
+
+  python -m yolo_benchmark.cli export \
+    --model artifacts/yolo11n.pt \
+    --formats onnx \
+    --output-dir artifacts \
+    --imgsz 640 \
+    --batch 1
+
+  推理：
+
+  python -m yolo_benchmark.cli infer \
+    --backend onnxruntime \
+    --model artifacts/yolo11n.onnx \
+    --source datasets/coco8/images/val/000000000036.jpg \
+    --output results/onnxruntime.jpg
+
+  ## 10. 构建和测试TensorRT
+
+  构建FP16 Engine：
+
+  python -m yolo_benchmark.cli export \
+    --model artifacts/yolo11n.pt \
+    --formats engine \
+    --output-dir artifacts \
+    --imgsz 640 \
+    --batch 1 \
+    --half \
+    --workspace 4
+
+  测试：
+
+  python -m yolo_benchmark.cli infer \
+    --backend tensorrt \
+    --model artifacts/yolo11n.engine \
+    --source datasets/coco8/images/val/000000000036.jpg \
+    --output results/tensorrt.jpg
+
+  ## 11. 执行完整性能对比
+
+  python -m yolo_benchmark.cli benchmark \
+    --pt artifacts/yolo11n.pt \
+    --onnx artifacts/yolo11n.onnx \
+    --engine artifacts/yolo11n.engine \
+    --source datasets/coco8/images/val \
+    --imgsz 640 \
+    --batch 1 \
+    --half \
+    --warmup 50 \
+    --runs 500 \
+    --output results/coco8_batch1.json
+
+  ## 12. 导出Conda环境记录
+
+  记录Conda环境：
+
+  conda env export --no-builds > environment.yml
+
+  记录Python依赖：
+
+  python -m pip freeze > requirements-lock.txt
+
+  不过这两个命令会在项目目录新增文件。建议先跑通整个环境，再生成并提交。
+
+  ## 日常使用
+
+  每次登录服务器：
+
+  cd /path/to/luna_prompt_model_train/yolo_inference_benchmark
+  conda activate yolo-trt
+  python -m yolo_benchmark.cli env
+
+  退出环境：
+
+  conda deactivate
+
+  完整原则就是：
+
+  宿主机NVIDIA驱动：保持现状
+  Conda：管理Python 3.10和环境
+  pip cu121：安装PyTorch CUDA运行库
+  pip cu12：安装TensorRT CUDA 12版本
+
+  不要同时混用conda cudatoolkit、系统CUDA和多个来源的TensorRT。这样最不容易出现动态库版本冲突。
+
+
+› 不需要用到docker部署是吗
+
+
+• 目前不需要Docker。用Conda就可以完成：
+
+  PyTorch模型下载与推理
+  ONNX导出
+  ONNX Runtime CUDA推理
+  TensorRT Engine构建
+  TensorRT推理
+  三后端性能测试
+
+  你的开发流程可以是：
+
+  宿主机NVIDIA驱动
+          ↓
+  Conda环境 yolo-trt
+          ├── PyTorch CUDA
+          ├── Ultralytics
+          ├── ONNX Runtime GPU
+          └── TensorRT cu12
+
+  ## 什么时候不需要Docker
+
+  当前阶段属于单机开发和技术验证：
+
+  - 只有一张L20
+  - 使用Python API
+  - 不需要Kubernetes
+  - 不需要跨服务器批量部署
+  - 不需要提供长期在线服务
+  - 暂时不做C++ TensorRT Plugin
+  - 当前项目只做推理与性能对比
+
+  这种情况下Conda更直观，也方便你学习各组件之间的关系。

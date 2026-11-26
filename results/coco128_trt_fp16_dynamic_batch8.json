@@ -1,0 +1,31 @@
+{
+  "environment": {
+    "platform": "Linux-6.8.0-88-generic-x86_64-with-glibc2.39",
+    "python": "3.10.20",
+    "torch": "2.5.1+cu121",
+    "torch_cuda": "12.1",
+    "gpu": "NVIDIA L20"
+  },
+  "results": [
+    {
+      "backend": "tensorrt",
+      "batch_size": 8,
+      "image_size": [
+        640,
+        640
+      ],
+      "warmup_runs": 50,
+      "measured_runs": 500,
+      "precision": "engine-defined",
+      "preprocess_mean_ms": 21.77130594290793,
+      "inference_mean_ms": 11.45921661471948,
+      "inference_p50_ms": 11.52009004727006,
+      "inference_p95_ms": 15.577790595125407,
+      "inference_p99_ms": 15.685335309244692,
+      "postprocess_mean_ms": 5.989667114336044,
+      "end_to_end_mean_ms": 39.32116168132052,
+      "throughput_images_per_second": 698.1280020244943,
+      "cuda_memory_allocated_mib": 0.0
+    }
+  ]
+}

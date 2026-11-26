@@ -1,0 +1,8 @@
+# Versions observed in the NVIDIA L20 FP32/FP16/INT8 baseline.
+ultralytics==8.4.118
+onnx==1.21.0
+onnxruntime-gpu==1.22.0
+opencv-python-headless>=4.9,<5
+numpy>=1.24,<3
+PyYAML>=6.0
+pytest>=8.0

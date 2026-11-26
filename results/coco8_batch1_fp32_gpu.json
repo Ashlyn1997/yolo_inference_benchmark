@@ -1,0 +1,71 @@
+{
+  "environment": {
+    "platform": "Linux-6.8.0-88-generic-x86_64-with-glibc2.39",
+    "python": "3.10.20",
+    "torch": "2.5.1+cu121",
+    "torch_cuda": "12.1",
+    "gpu": "NVIDIA L20"
+  },
+  "results": [
+    {
+      "backend": "pytorch",
+      "batch_size": 1,
+      "image_size": [
+        640,
+        640
+      ],
+      "warmup_runs": 50,
+      "measured_runs": 500,
+      "precision": "engine-defined",
+      "preprocess_mean_ms": 2.6326001454144716,
+      "inference_mean_ms": 6.62382451351732,
+      "inference_p50_ms": 6.35473255533725,
+      "inference_p95_ms": 7.587790058460087,
+      "inference_p99_ms": 7.651126298587769,
+      "postprocess_mean_ms": 0.6712415958754718,
+      "end_to_end_mean_ms": 9.959005993325263,
+      "throughput_images_per_second": 150.97018315616418,
+      "cuda_memory_allocated_mib": 42.26953125
+    },
+    {
+      "backend": "onnxruntime-cuda",
+      "batch_size": 1,
+      "image_size": [
+        640,
+        640
+      ],
+      "warmup_runs": 50,
+      "measured_runs": 500,
+      "precision": "engine-defined",
+      "preprocess_mean_ms": 1.8350759539753199,
+      "inference_mean_ms": 2.043535489588976,
+      "inference_p50_ms": 2.0421779481694102,
+      "inference_p95_ms": 2.067820879165083,
+      "inference_p99_ms": 2.082206711638719,
+      "postprocess_mean_ms": 0.6475236308760941,
+      "end_to_end_mean_ms": 4.555207797791809,
+      "throughput_images_per_second": 489.3479976710039,
+      "cuda_memory_allocated_mib": 32.0
+    },
+    {
+      "backend": "tensorrt",
+      "batch_size": 1,
+      "image_size": [
+        640,
+        640
+      ],
+      "warmup_runs": 50,
+      "measured_runs": 500,
+      "precision": "engine-defined",
+      "preprocess_mean_ms": 1.0358618800528347,
+      "inference_mean_ms": 1.5891857710666955,
+      "inference_p50_ms": 1.5844330191612244,
+      "inference_p95_ms": 1.608165493234992,
+      "inference_p99_ms": 1.6194778680801392,
+      "postprocess_mean_ms": 0.6224781270138919,
+      "end_to_end_mean_ms": 3.273065639194101,
+      "throughput_images_per_second": 629.2530541151137,
+      "cuda_memory_allocated_mib": 32.0
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Install a CUDA-enabled PyTorch build appropriate for the host before this file.
+# torchvision is not required by this project's inference pipeline.
+ultralytics>=8.3
+onnx>=1.16
+onnxruntime-gpu>=1.18
+opencv-python-headless>=4.9
+numpy>=1.24,<3
+PyYAML>=6.0
+pytest>=8.0
+
+# TensorRT is best installed from an NVIDIA container/system package matching
+# the host driver and CUDA version. Do not blindly install the newest build.
+# tensorrt-cu12
