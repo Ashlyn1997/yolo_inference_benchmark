@@ -366,8 +366,10 @@ Event 结果只用于帮助归因，正式收益使用 10.1 的未插桩数据�
 ### 10.3 结果保存和下一步
 
 回收整个 `output_buffers_<timestamp>` 和 `output_buffer_events_<timestamp>`，保留
-原始 CSV/JSON、日志、源代码版本及 Engine。仓库的 `*.log` 忽略规则可能使日志
-不会随普通 `git add` 提交，备份压缩包应包含 `logs/`；需要进 Git 时显式检查。
+原始 CSV/JSON、日志、源代码版本及 Engine。仓库现已为
+`results/t4/output_buffers_*/logs/*.log` 增加忽略规则例外，防止这类实验日志被
+通用 `*.log` 规则遗漏；仍应检查备份包确实包含 `logs/`。例外规则不能恢复旧归档中
+已经缺失的日志。
 无需重建或覆盖历史 `pinned_final_*` 结果。
 
 完成后先核对三档的后端与 E2E 是否同向改善，再看 V2/V1 和 V3/V2 的差异。
@@ -376,7 +378,129 @@ Event 结果只用于帮助归因，正式收益使用 10.1 的未插桩数据�
 本地不需要 GPU 的相关测试：
 
 ```bash
-python -m unittest tests.test_output_buffer_comparison -v
+python -m unittest discover -s tests -p 'test_output_buffer_comparison.py' -v
 # 安装了项目完整测试依赖时，也可运行：
 pytest -q
+```
+
+在 Kaggle 中先用 `%cd /kaggle/working/yolo_inference_benchmark` 切到项目根目录。
+若出现 `No module named 'tests.test_output_buffer_comparison'`，先确认新测试文件
+已同步到 Kaggle，再使用上面的 discovery 命令，避免与环境内同名 `tests` 包冲突。
+项目同时提供 `tests/__init__.py` 和 `scripts/__init__.py` 明确本地包的导入边界。
+
+### 10.4 本地原始数据核验和绘图
+
+回收正式轮和六组 Event 目录后，可在 CPU 上运行：
+
+```bash
+python -m pip install -r requirements-plot.txt
+python scripts/plot_t4_output_buffer_results.py \
+  results/t4/output_buffers_20261128_072552_478147 \
+  --events-dir results/t4/output_buffer_events_20261128_073920_821735
+```
+
+默认写入正式目录的 `plots/`：推理吞吐、后端延迟、E2E、独立 D2H Event 和
+b8 原实现逐次采样五张 180 DPI PNG，以及 `verification.json`。
+正式图误差线是跨轮总体标准差，Event 图为独立诊断均值；不将两轮混为一轮。
+`--verify-only` 可在不安装 matplotlib 时只核验；`--output-dir` 可改输出位置。
+
+核验重算逐轮 CSV 的阶段均值、标准差、分位数和吞吐，再核对配对汇总；也检查
+诊断 CSV 与 Event/主机均值、正式执行清单及源码 hash，并明确报告缺失日志。
+Event 目录没有独立源码 provenance，Engine/原图也不会在本地重新读取核对；
+一致的 metadata 不代表重新执行了推理或 mAP 验证。
+
+## 11. 收尾：不同图片连续推理和输出生命周期
+
+当前输出缓冲区性能实验到此收口，先补小规模正确性验收。INT8、输入四档优化和
+多 Stream 不列为当前收尾的必做项。本节不需要重建 Engine，不修改旧 worker、
+正式 `TensorRTBackend` 或历史性能结果，也不输出新的性能或 mAP 数字。
+
+新增 `scripts/check_t4_output_correctness.py`，对目录按文件名排序选择 33 张图片，
+逐批前进，不循环复用同一批。验证三个路径：
+
+| 路径 | 执行方式 | 保存结果的规则 |
+| --- | --- | --- |
+| reference | 原 `TensorRTBackend.infer()` | 每次独立 CPU 输出 |
+| borrowed | 第 10 节 `reuse_pinned` 实现 | 下一次调用同一 runner 前完成消费 |
+| owned | borrowed 返回后立即 `.copy()` | 后续调用不能覆盖已保存结果 |
+
+这三条路径使用同一 Engine、预处理和 CPU 后处理。脚本比对每次 raw 输出和
+解码后的框、分数、类别及顺序，记录每张图片的 ID、内容 hash、批次和槽位。
+borrowed 检查内存共享及旧视图随当前输出更新；owned/reference 保留首次结果，
+在后续每次调用后核对其未变。不同图片偶尔得到相同预测不算失败，不能只依赖
+“输出数值是否变化”判断复用行为。
+
+owned 只是同步调用下增加独立副本的示例，未接入正式后端；它不使 TensorRT
+execution context 并发安全，也不能直接继承 borrowed 模式的性能收益。
+本检查有意保存校验副本，内存生命周期与性能实验不同，不能拿其运行时间作 benchmark。
+
+### 11.1 Kaggle 一次运行两档检查
+
+同步新代码后执行：
+
+```python
+%cd /kaggle/working/yolo_inference_benchmark
+
+import json
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+output = Path("results/t4") / (
+    "output_correctness_" + datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S_%f")
+)
+for batch in (4, 8):
+    destination = output / f"b{batch}"
+    subprocess.run([
+        sys.executable, "-u", "scripts/check_t4_output_correctness.py",
+        "--engine", f"artifacts/t4/yolo11n_t4_fp16_b{batch}.engine",
+        "--source", "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+        "--batch", str(batch), "--images", "33", "--device", "cuda:0",
+        "--output-dir", str(destination),
+    ], check=True)
+    summary = json.loads((destination / "summary.json").read_text())
+    assert summary["passed"] is True and summary["images_checked"] == 33
+
+print("BOTH CORRECTNESS CHECKS PASSED:", output)
+```
+
+Batch 4 共 9 批、Batch 8 共 5 批；尾批分别补 3/7 张，填充位置不输出图片结果。
+每批 reference 执行一次，borrowed 执行一次，owned 再调用同一 borrowed runner 并
+复制一次；因此每批有三次串行推理，均用于正确性对照。无需再执行 18 次性能矩阵。
+源目录必须有足够的真实图片，不能用一个文件循环充数。
+
+默认 `rtol=1e-4`、`atol=1e-4`。输出不一致时保留现场并检查图片槽位、NMS 边界、
+Engine/环境和原始预测，不为了得到通过结果而直接放宽阈值。
+
+### 11.2 输出与通过标准
+
+```text
+results/t4/output_correctness_<timestamp>/
+├── b4/
+│   ├── provenance.json       # Engine/源码 hash、环境、参数、选图清单
+│   ├── batch_checks.csv     # 每批 raw 误差、填充数、生命周期检查
+│   ├── image_results.jsonl  # 每张真实图片的 reference/borrowed/owned 检测结果
+│   └── summary.json
+└── b8/
+    └── ...
+```
+
+两组均出现 `CORRECTNESS PASSED`，最后出现 `BOTH CORRECTNESS CHECKS PASSED`。
+每组应有 33 条图片记录，图片 ID 唯一且顺序与清单一致；汇总中的
+`borrowed_shared_buffer_verified`、`first_owned_and_reference_survived_later_calls`
+均为 true。`borrowed_contents_changed_observed` 描述是否观察到内容变化，不是独立
+通过条件。Engine 和记录的源码在运行期间发生变化也会判失败。
+
+发生失败时进程非零退出，`summary.json` 标记 `passed=false`，保存 `failure.txt`
+及已完成批次的记录；启动阶段的路径或环境错误会直接显示在终端。成功不能外推为
+完整 COCO mAP、不同 Engine、异步服务或并发场景的正确性。
+
+请回收整个目录。验收通过后，把本项目整理为环境恢复、制品构建、精度与性能
+验证、异常排查和部署取舍的完整案例，进入面试准备。
+
+本地单元测试仅需已有 NumPy，不依赖 NVIDIA GPU、TensorRT 或模型：
+
+```bash
+python -m unittest discover -s tests -p 'test_output_correctness.py' -v
 ```

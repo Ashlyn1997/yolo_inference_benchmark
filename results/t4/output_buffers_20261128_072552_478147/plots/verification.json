@@ -1,0 +1,103 @@
+{
+  "formal_directory": "/Users/tutu/Documents/workspace/yolo_inference_benchmark/results/t4/output_buffers_20261128_072552_478147",
+  "event_directory": "/Users/tutu/Documents/workspace/yolo_inference_benchmark/results/t4/output_buffer_events_20261128_073920_821735",
+  "verified_formal_cases": 18,
+  "formal_latency_rows": 9000,
+  "verified_event_cases": 6,
+  "diagnostic_control_latency_rows": 600,
+  "diagnostic_profiled_latency_rows": 600,
+  "cuda_event_rows": 600,
+  "total_csv_rows": 10800,
+  "csv_and_aggregate_match": true,
+  "source_matches_local": {
+    "scripts/profile_t4_output_buffers.py": true,
+    "scripts/run_t4_output_buffer_comparison.py": true,
+    "yolo_benchmark/backends.py": true,
+    "yolo_benchmark/benchmark.py": true,
+    "yolo_benchmark/pipeline.py": true,
+    "yolo_benchmark/environment.py": true
+  },
+  "engine_sha256_by_batch": {
+    "4": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5",
+    "8": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+  },
+  "formal_max_recorded_output_error": 0.0,
+  "diagnostic_max_recorded_output_error": 0.0,
+  "missing_formal_logs": [
+    "b4_original_repeat1",
+    "b4_original_repeat2",
+    "b4_original_repeat3",
+    "b4_reuse_pageable_repeat1",
+    "b4_reuse_pageable_repeat2",
+    "b4_reuse_pageable_repeat3",
+    "b4_reuse_pinned_repeat1",
+    "b4_reuse_pinned_repeat2",
+    "b4_reuse_pinned_repeat3",
+    "b8_original_repeat1",
+    "b8_original_repeat2",
+    "b8_original_repeat3",
+    "b8_reuse_pageable_repeat1",
+    "b8_reuse_pageable_repeat2",
+    "b8_reuse_pageable_repeat3",
+    "b8_reuse_pinned_repeat1",
+    "b8_reuse_pinned_repeat2",
+    "b8_reuse_pinned_repeat3"
+  ],
+  "original_run_diagnostics": [
+    {
+      "case": "b4_original_repeat1",
+      "mean_ms": 14.864363105993107,
+      "median_ms": 14.91042449924862,
+      "samples_over_35_ms": 0,
+      "threshold_note": "35 ms is descriptive only; no samples are excluded"
+    },
+    {
+      "case": "b4_original_repeat2",
+      "mean_ms": 15.153147458022431,
+      "median_ms": 15.186046500275552,
+      "samples_over_35_ms": 0,
+      "threshold_note": "35 ms is descriptive only; no samples are excluded"
+    },
+    {
+      "case": "b4_original_repeat3",
+      "mean_ms": 15.195719199982705,
+      "median_ms": 15.241542500916694,
+      "samples_over_35_ms": 0,
+      "threshold_note": "35 ms is descriptive only; no samples are excluded"
+    },
+    {
+      "case": "b8_original_repeat1",
+      "mean_ms": 27.534813176014723,
+      "median_ms": 27.354792000551242,
+      "samples_over_35_ms": 9,
+      "threshold_note": "35 ms is descriptive only; no samples are excluded"
+    },
+    {
+      "case": "b8_original_repeat2",
+      "mean_ms": 32.25002202592077,
+      "median_ms": 29.626230499161466,
+      "samples_over_35_ms": 167,
+      "threshold_note": "35 ms is descriptive only; no samples are excluded"
+    },
+    {
+      "case": "b8_original_repeat3",
+      "mean_ms": 27.779759021992504,
+      "median_ms": 27.5464615006058,
+      "samples_over_35_ms": 11,
+      "threshold_note": "35 ms is descriptive only; no samples are excluded"
+    }
+  ],
+  "notes": [
+    "All latency CSV means/stddev/P50/P95/P99/throughput and all Event CSV means are recomputed.",
+    "Event archives contain no independent source hash or execution manifest; matched metadata is not source proof.",
+    "Engine digests are compared across JSON records; Engine binaries and original images are not rehashed here.",
+    "Reported output error is the saved fixed-batch check, not a new inference or full-dataset mAP test."
+  ],
+  "figures": [
+    "three_mode_throughput.png",
+    "three_mode_latency.png",
+    "three_mode_e2e.png",
+    "three_mode_d2h_event.png",
+    "b8_original_samples.png"
+  ]
+}

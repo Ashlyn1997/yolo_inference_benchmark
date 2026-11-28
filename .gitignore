@@ -4,6 +4,8 @@ build/
 .env
 .env.*
 *.log
+# Preserve experiment logs when archiving T4 output-buffer runs in Git.
+!results/t4/output_buffers_*/logs/*.log
 .DS_Store
 .idea/
 .vscode/

@@ -278,6 +278,16 @@ python scripts/run_t4_output_buffer_comparison.py \
 完整 Kaggle 单元格、计时边界、输出目录和验收说明见
 [T4 操作手册第 10 节](docs/T4_RUNBOOK.md#10-三档输出缓冲区对照与-cuda-event-诊断新增实验)。
 
+回收这轮正式与 Event 结果后，用 `scripts/plot_t4_output_buffer_results.py` 核验原始
+CSV/JSON 并生成五张图；具体命令见操作手册第 10.4 节。已核验结果、b8 慢轮分布
+及日志缺失说明见 [T4 报告第 11 节](reports/T4报告.md#11-三档输出缓冲区对照与-cuda-event-诊断2026-11-28)。
+
+性能实验收尾使用 `scripts/check_t4_output_correctness.py`：检查不同图片连续推理、
+borrowed 输出的复用及 `.copy()` 后独立输出的生命周期。默认 33 张图片，支持
+尾批填充且不计填充预测，生成逐图片 JSONL、逐批 CSV 和验收汇总。
+Kaggle 两档运行与通过标准见 [操作手册第 11 节](docs/T4_RUNBOOK.md#11-收尾不同图片连续推理和输出生命周期)。
+这项检查不提供新的性能或 mAP 结论；INT8、多 Stream 不作为当前项目收尾前提。
+
 ## 常见问题
 
 ### ONNX Runtime回退到CPU
