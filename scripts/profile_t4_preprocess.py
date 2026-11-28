@@ -143,6 +143,10 @@ def build_parser():
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--warmup", type=int, default=50)
     parser.add_argument("--runs", type=int, default=500)
+    parser.add_argument(
+        "--benchmark-only", action="store_true",
+        help="Run only the uninstrumented control, with the same validation-array cleanup",
+    )
     return parser
 
 
@@ -173,6 +177,7 @@ def main():
         backend.infer = make_pinned_infer(backend)
     actual = backend.infer(test_batch).copy()
     np.testing.assert_allclose(actual, reference, rtol=1e-4, atol=1e-4, equal_nan=False)
+    max_abs_output_error = float(np.max(np.abs(actual - reference)))
 
     profiler = ProfiledPreprocess()
     profiled_batch, profiled_metas = profiler(images, size)
@@ -187,23 +192,26 @@ def main():
             backend, images, size, args.warmup, args.runs, 0.25, 0.45, "fp16"
         )
 
-    print(f"{args.mode}: [1/2] uninstrumented control", flush=True)
+    phases = 1 if args.benchmark_only else 2
+    print(f"{args.mode}: [1/{phases}] uninstrumented control", flush=True)
     control, control_raw = measure()
     benchmark_module.write_raw_samples(control_raw, args.output_dir / "control_latency.csv")
 
-    print(f"{args.mode}: [2/2] preprocessing stage timings", flush=True)
-    saved_preprocess = benchmark_module.preprocess
-    try:
-        benchmark_module.preprocess = profiler
-        profiled, raw = measure()
-    finally:
-        benchmark_module.preprocess = saved_preprocess
-    means, rows = summarize_samples(profiler.samples, raw, args.runs)
-    benchmark_module.write_raw_samples(raw, args.output_dir / "profiled_latency.csv")
-    with (args.output_dir / "preprocess_samples.csv").open("w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=list(rows[0]))
-        writer.writeheader()
-        writer.writerows(rows)
+    profiled, means = None, None
+    if not args.benchmark_only:
+        print(f"{args.mode}: [2/2] preprocessing stage timings", flush=True)
+        saved_preprocess = benchmark_module.preprocess
+        try:
+            benchmark_module.preprocess = profiler
+            profiled, raw = measure()
+        finally:
+            benchmark_module.preprocess = saved_preprocess
+        means, rows = summarize_samples(profiler.samples, raw, args.runs)
+        benchmark_module.write_raw_samples(raw, args.output_dir / "profiled_latency.csv")
+        with (args.output_dir / "preprocess_samples.csv").open("w", newline="", encoding="utf-8") as file:
+            writer = csv.DictWriter(file, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
 
     payload = {
         "mode": args.mode,
@@ -213,22 +221,31 @@ def main():
         "source": args.source,
         "opencv_threads": cv2.getNumThreads(),
         "torch_threads": torch.get_num_threads(),
+        "numpy_version": np.__version__,
+        "opencv_version": cv2.__version__,
         "gpu_monitor_enabled": False,
+        "benchmark_only": args.benchmark_only,
+        "validation_array_policy": "released_before_warmup",
         "preprocess_equivalence_passed": True,
         "output_allclose_passed": True,
+        "max_abs_output_error": max_abs_output_error,
         "control": asdict(control),
-        "profiled": asdict(profiled),
+        "profiled": asdict(profiled) if profiled is not None else None,
         "preprocess_breakdown_mean_ms": means,
     }
     (args.output_dir / "summary.json").write_text(
         json.dumps(payload, indent=2) + "\n", encoding="utf-8"
     )
     print(
-        f"{args.mode}: control pre={control.preprocess_mean_ms:.3f}, "
-        f"profiled pre={profiled.preprocess_mean_ms:.3f} ms/batch", flush=True,
+        f"{args.mode}: pre={control.preprocess_mean_ms:.3f}, "
+        f"infer={control.inference_mean_ms:.3f}, "
+        f"post={control.postprocess_mean_ms:.3f}, "
+        f"E2E={control.end_to_end_mean_ms:.3f} ms/batch", flush=True,
     )
-    for stage, value in means.items():
-        print(f"  {stage}: {value:.3f}", flush=True)
+    if profiled is not None:
+        print(f"  profiled pre={profiled.preprocess_mean_ms:.3f} ms/batch", flush=True)
+        for stage, value in means.items():
+            print(f"  {stage}: {value:.3f}", flush=True)
     print(f"Complete: {args.output_dir / 'summary.json'}", flush=True)
 
 

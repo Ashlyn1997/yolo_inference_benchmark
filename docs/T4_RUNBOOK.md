@@ -185,3 +185,43 @@ print("两种模式全部完成：", output)
 复现；若插桩明显改变结果，不能直接用分段时间解释原测量。这是一次定位运行，
 不提供统计显著性结论。pinned 模式返回会复用的 NumPy view，仅用于当前推理后
 立即完成后处理的同步流程，不能无条件替换正式后端的独立输出所有权语义。
+
+## 9. 最终统一条件复测（12 次独立进程）
+
+将更新后的 `scripts/profile_t4_preprocess.py` 和新增的
+`scripts/run_t4_pinned_comparison.py` 同步到 Kaggle。前者新增
+`--benchmark-only`，只测未插桩 control，不再额外跑一次分段 profiling。
+两种模式都执行相同的正确性检查，并在 warmup 前释放校验数组。
+
+Notebook 执行：
+
+```python
+%cd /kaggle/working/yolo_inference_benchmark
+
+import subprocess
+import sys
+
+subprocess.run([
+    sys.executable, "scripts/run_t4_pinned_comparison.py",
+    "--source", "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+], check=True)
+```
+
+默认 b4/b8 × original/pinned × 3 轮，共 12 次，每次 warmup=50、runs=500，
+交替配置顺序，GPU monitor 关闭。使用已有 Engine，不重新构建。
+可用 `--engine-template`、`--batches`、`--repeats`、`--warmup`、`--runs`、
+`--device` 和 `--output-dir` 覆盖默认值。非空输出目录会被拒绝以防覆盖。
+
+默认生成 `results/t4/pinned_final_<timestamp>/`，其中每个配置保存
+`summary.json`、`control_latency.csv`，另保存日志、`execution_order.json`、
+总汇总 `comparison.json` 和 `summary.md`。
+
+汇总检查同 batch 的 Engine SHA256、环境版本、图片尺寸、线程数、请求的
+测量设置、校验结果及内存生命周期策略一致。报告同时给出前处理、inference、
+后处理、E2E、推理吞吐，以及 inference/E2E 的跨轮 CV；收益为负表示退化，
+不会仅根据推理吞吐判定全流程成功。P95 是各轮 P95 的平均值，原始 CSV 可用于
+另算合并分位数。当前均值/总体标准差不提供统计显著性结论。
+
+出现 `ALL 12 RUNS COMPLETE` 后本轮才全部结束。最终报告只使用本轮统一条件
+的数据，不与保留校验数组的旧实验混合平均。该运行器仍属于同步消费输出的实验
+实现，不改变正式 `TensorRTBackend` 的输出所有权契约。
