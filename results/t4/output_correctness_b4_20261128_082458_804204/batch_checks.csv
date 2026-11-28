@@ -1,0 +1,10 @@
+iteration,real_images,padded_images,borrowed_max_abs_error,owned_max_abs_error,borrowed_shared_buffer,owned_and_reference_stable,first_borrowed_contents_changed
+0,4,0,0.0,0.0,True,True,False
+1,4,0,0.0,0.0,True,True,True
+2,4,0,0.0,0.0,True,True,True
+3,4,0,0.0,0.0,True,True,True
+4,4,0,0.0,0.0,True,True,True
+5,4,0,0.0,0.0,True,True,True
+6,4,0,0.0,0.0,True,True,True
+7,4,0,0.0,0.0,True,True,True
+8,1,3,0.0,0.0,True,True,True

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "batches_checked": 9,
+  "images_checked": 33,
+  "distinct_decoded_images": 33,
+  "padded_images": 3,
+  "borrowed_max_abs_error": 0.0,
+  "owned_max_abs_error": 0.0,
+  "borrowed_shared_buffer_verified": true,
+  "first_owned_and_reference_survived_later_calls": true,
+  "borrowed_contents_changed_observed": true,
+  "notes": [
+    "Borrowed results are consumed synchronously; retain .copy() if needed after the next call.",
+    "Identical predictions for different images do not alone invalidate the lifetime check.",
+    "Uses the same Engine and preprocessing/postprocessing for all paths; not a full mAP test.",
+    "OwnedOutput adds a copy; no latency or throughput claim is made.",
+    "Neither borrowed nor owned wrapper supports concurrent use of one execution context."
+  ],
+  "finished_at": "2026-11-28T08:25:05.672912+00:00"
+}
