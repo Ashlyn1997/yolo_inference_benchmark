@@ -1,0 +1,2386 @@
+{
+  "groups": [
+    {
+      "batch_size": 4,
+      "mode": "original",
+      "repeats": 3,
+      "metrics": {
+        "preprocess_mean_ms": {
+          "mean": 12.656506797330318,
+          "stddev": 0.23184535658987446,
+          "cv_pct": 1.8318273778257554
+        },
+        "inference_mean_ms": {
+          "mean": 15.071076587999414,
+          "stddev": 0.14719813412712818,
+          "cv_pct": 0.9766928942842547
+        },
+        "postprocess_mean_ms": {
+          "mean": 11.838644146664592,
+          "stddev": 0.4781429174403569,
+          "cv_pct": 4.038831740500186
+        },
+        "end_to_end_mean_ms": {
+          "mean": 39.669232848000924,
+          "stddev": 0.7287802856832106,
+          "cv_pct": 1.8371423729711387
+        },
+        "throughput_images_per_second": {
+          "mean": 265.4345278071365,
+          "stddev": 2.6093997444160193,
+          "cv_pct": 0.9830671864633967
+        },
+        "inference_p95_ms": {
+          "mean": 15.613237266340244,
+          "stddev": 0.18147653713936784,
+          "cv_pct": 1.1623248532231272
+        },
+        "end_to_end_p95_ms": {
+          "mean": 43.77746715032723,
+          "stddev": 0.7123452322119306,
+          "cv_pct": 1.6271960864382853
+        }
+      }
+    },
+    {
+      "batch_size": 4,
+      "mode": "reuse_pageable",
+      "repeats": 3,
+      "metrics": {
+        "preprocess_mean_ms": {
+          "mean": 12.30476643737226,
+          "stddev": 0.16796284151233168,
+          "cv_pct": 1.365022589963121
+        },
+        "inference_mean_ms": {
+          "mean": 15.037032349994357,
+          "stddev": 0.05618341803321018,
+          "cv_pct": 0.3736336846627271
+        },
+        "postprocess_mean_ms": {
+          "mean": 11.492499557997993,
+          "stddev": 0.041027307410263655,
+          "cv_pct": 0.3569920294816236
+        },
+        "end_to_end_mean_ms": {
+          "mean": 38.93001675600923,
+          "stddev": 0.24376580939066061,
+          "cv_pct": 0.6261641522490046
+        },
+        "throughput_images_per_second": {
+          "mean": 266.01364118300677,
+          "stddev": 0.9918956389631168,
+          "cv_pct": 0.37287397539163497
+        },
+        "inference_p95_ms": {
+          "mean": 15.509920616932504,
+          "stddev": 0.04484754698922353,
+          "cv_pct": 0.289153942801374
+        },
+        "end_to_end_p95_ms": {
+          "mean": 43.129995516816656,
+          "stddev": 0.17100741070193023,
+          "cv_pct": 0.3964929943831164
+        }
+      }
+    },
+    {
+      "batch_size": 4,
+      "mode": "reuse_pinned",
+      "repeats": 3,
+      "metrics": {
+        "preprocess_mean_ms": {
+          "mean": 12.445126068663134,
+          "stddev": 0.1561193552820123,
+          "cv_pct": 1.2544618224087043
+        },
+        "inference_mean_ms": {
+          "mean": 13.438948740000342,
+          "stddev": 0.09448197080146574,
+          "cv_pct": 0.7030458455447858
+        },
+        "postprocess_mean_ms": {
+          "mean": 11.912616871322825,
+          "stddev": 0.5326282977897008,
+          "cv_pct": 4.471127574596089
+        },
+        "end_to_end_mean_ms": {
+          "mean": 37.89803087865463,
+          "stddev": 0.6312667302063794,
+          "cv_pct": 1.6656979678644168
+        },
+        "throughput_images_per_second": {
+          "mean": 297.6570971287352,
+          "stddev": 2.1006276593714976,
+          "cv_pct": 0.7057206697352782
+        },
+        "inference_p95_ms": {
+          "mean": 13.860760483233511,
+          "stddev": 0.08743539126183762,
+          "cv_pct": 0.6308123668077427
+        },
+        "end_to_end_p95_ms": {
+          "mean": 41.819857683276496,
+          "stddev": 0.7602833319872109,
+          "cv_pct": 1.8179959811083803
+        }
+      }
+    },
+    {
+      "batch_size": 8,
+      "mode": "original",
+      "repeats": 3,
+      "metrics": {
+        "preprocess_mean_ms": {
+          "mean": 29.881548698000795,
+          "stddev": 1.5553092124331982,
+          "cv_pct": 5.204915006755507
+        },
+        "inference_mean_ms": {
+          "mean": 29.188198074642667,
+          "stddev": 2.1673446193180945,
+          "cv_pct": 7.4254142505665035
+        },
+        "postprocess_mean_ms": {
+          "mean": 19.09781019931931,
+          "stddev": 0.42935083321760276,
+          "cv_pct": 2.248167872319235
+        },
+        "end_to_end_mean_ms": {
+          "mean": 78.28864079667255,
+          "stddev": 4.0392602076335455,
+          "cv_pct": 5.15944607867713
+        },
+        "throughput_images_per_second": {
+          "mean": 275.5275303073527,
+          "stddev": 19.44931179946976,
+          "cv_pct": 7.058935917501214
+        },
+        "inference_p95_ms": {
+          "mean": 32.26997520044581,
+          "stddev": 5.528262269665361,
+          "cv_pct": 17.13128762983675
+        },
+        "end_to_end_p95_ms": {
+          "mean": 86.50038090093706,
+          "stddev": 5.193424423832433,
+          "cv_pct": 6.003932433291947
+        }
+      }
+    },
+    {
+      "batch_size": 8,
+      "mode": "reuse_pageable",
+      "repeats": 3,
+      "metrics": {
+        "preprocess_mean_ms": {
+          "mean": 28.562457061342382,
+          "stddev": 0.29688226182883837,
+          "cv_pct": 1.0394142954551735
+        },
+        "inference_mean_ms": {
+          "mean": 27.6632422939947,
+          "stddev": 0.1080174144079573,
+          "cv_pct": 0.3904727192134176
+        },
+        "postprocess_mean_ms": {
+          "mean": 19.654384217995055,
+          "stddev": 0.7430244707659309,
+          "cv_pct": 3.780451539588997
+        },
+        "end_to_end_mean_ms": {
+          "mean": 76.00324037462876,
+          "stddev": 1.0636732757710639,
+          "cv_pct": 1.399510429460764
+        },
+        "throughput_images_per_second": {
+          "mean": 289.19683289134485,
+          "stddev": 1.1299971176815926,
+          "cv_pct": 0.3907363391168767
+        },
+        "inference_p95_ms": {
+          "mean": 28.355228116743092,
+          "stddev": 0.098960949014147,
+          "cv_pct": 0.34900424220432524
+        },
+        "end_to_end_p95_ms": {
+          "mean": 82.1292701502595,
+          "stddev": 0.7260026428677537,
+          "cv_pct": 0.8839755199814834
+        }
+      }
+    },
+    {
+      "batch_size": 8,
+      "mode": "reuse_pinned",
+      "repeats": 3,
+      "metrics": {
+        "preprocess_mean_ms": {
+          "mean": 28.664723632634075,
+          "stddev": 0.36607564644667406,
+          "cv_pct": 1.2770946308022522
+        },
+        "inference_mean_ms": {
+          "mean": 24.336884426657587,
+          "stddev": 0.11074193281865721,
+          "cv_pct": 0.45503742745868986
+        },
+        "postprocess_mean_ms": {
+          "mean": 19.558113604671234,
+          "stddev": 0.7696511309227726,
+          "cv_pct": 3.9352012493625668
+        },
+        "end_to_end_mean_ms": {
+          "mean": 72.68277692799772,
+          "stddev": 1.1970280512062763,
+          "cv_pct": 1.6469211851826975
+        },
+        "throughput_images_per_second": {
+          "mean": 328.72597678486824,
+          "stddev": 1.4999313054984358,
+          "cv_pct": 0.45628621144232
+        },
+        "inference_p95_ms": {
+          "mean": 25.04123603315141,
+          "stddev": 0.02991169074096736,
+          "cv_pct": 0.11944973763023554
+        },
+        "end_to_end_p95_ms": {
+          "mean": 78.86427988369178,
+          "stddev": 0.8349055990387322,
+          "cv_pct": 1.0586612852739443
+        }
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "batch_size": 4,
+      "baseline": "original",
+      "candidate": "reuse_pageable",
+      "inference_latency_reduction_pct": 0.22589121491271014,
+      "throughput_gain_pct": 0.21817560083632337,
+      "e2e_latency_reduction_pct": 1.8634494264714418
+    },
+    {
+      "batch_size": 4,
+      "baseline": "reuse_pageable",
+      "candidate": "reuse_pinned",
+      "inference_latency_reduction_pct": 10.627652935751087,
+      "throughput_gain_pct": 11.895426040937117,
+      "e2e_latency_reduction_pct": 2.6508744751446933
+    },
+    {
+      "batch_size": 4,
+      "baseline": "original",
+      "candidate": "reuse_pinned",
+      "inference_latency_reduction_pct": 10.82953721633052,
+      "throughput_gain_pct": 12.139554559010302,
+      "e2e_latency_reduction_pct": 4.464926196412566
+    },
+    {
+      "batch_size": 8,
+      "baseline": "original",
+      "candidate": "reuse_pageable",
+      "inference_latency_reduction_pct": 5.224562944064637,
+      "throughput_gain_pct": 4.961138572520851,
+      "e2e_latency_reduction_pct": 2.9191979817088987
+    },
+    {
+      "batch_size": 8,
+      "baseline": "reuse_pageable",
+      "candidate": "reuse_pinned",
+      "inference_latency_reduction_pct": 12.024468541994505,
+      "throughput_gain_pct": 13.668595018250084,
+      "e2e_latency_reduction_pct": 4.3688445785523005
+    },
+    {
+      "batch_size": 8,
+      "baseline": "original",
+      "candidate": "reuse_pinned",
+      "inference_latency_reduction_pct": 16.620805558393393,
+      "throughput_gain_pct": 19.307851530542997,
+      "e2e_latency_reduction_pct": 7.1605073375001
+    }
+  ],
+  "source_sha256": {
+    "scripts/profile_t4_output_buffers.py": "edb6c93ae64c1af99dee4db57089ad781aeffae7e45bf425ba7e06a0011837aa",
+    "scripts/run_t4_output_buffer_comparison.py": "17efeaabc29c1ee3206e1361da5fa002fa45e74d405e4e71dc463155f66f93d9",
+    "yolo_benchmark/backends.py": "18fddcc3b24b5e1bc6e7704d7a2adf04d6de7b55603280e1bffe90a2990db7b2",
+    "yolo_benchmark/benchmark.py": "e52e3e24a167c5e49a8106c6961fdb1c0ddda4deaa114cf80ef5bafd97a90d8d",
+    "yolo_benchmark/pipeline.py": "896f6b5ef911bff74c9dfe86b865dba249ce55d2b304fe23494f53e7a83cfb08",
+    "yolo_benchmark/environment.py": "940cd422e2dbef5276dc4eb59446a6896c989b40b851316ba99b0e315e133379"
+  },
+  "runs": [
+    {
+      "mode": "original",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": false,
+        "ownership": "owned"
+      },
+      "batch_size": 4,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b4.engine",
+        "size_bytes": 54450988,
+        "sha256": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "45d7400da84e1a08ffc1325fca297b9f70977d3e2889f4f26df9b2f2395f6726",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 4,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 12.33134545998837,
+        "inference_mean_ms": 14.864363105993107,
+        "inference_p50_ms": 14.91042449924862,
+        "inference_p95_ms": 15.360278550087969,
+        "inference_p99_ms": 15.548384050707682,
+        "postprocess_mean_ms": 11.527242808035226,
+        "end_to_end_mean_ms": 38.82001103795483,
+        "throughput_images_per_second": 269.09999247712506,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.38917217163843587,
+        "end_to_end_p50_ms": 37.86302800017438,
+        "end_to_end_p95_ms": 42.88513845040142,
+        "end_to_end_p99_ms": 45.45052782073981,
+        "end_to_end_stddev_ms": 2.4263789340007764,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 1
+    },
+    {
+      "mode": "reuse_pageable",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 4,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b4.engine",
+        "size_bytes": 54450988,
+        "sha256": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "45d7400da84e1a08ffc1325fca297b9f70977d3e2889f4f26df9b2f2395f6726",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 4,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 12.129943184023432,
+        "inference_mean_ms": 15.013976913996885,
+        "inference_p50_ms": 15.012636000392376,
+        "inference_p95_ms": 15.472539150232478,
+        "inference_p99_ms": 15.863825979740795,
+        "postprocess_mean_ms": 11.436472909983422,
+        "end_to_end_mean_ms": 38.67046478597331,
+        "throughput_images_per_second": 266.41841951088736,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.32580129629563104,
+        "end_to_end_p50_ms": 37.74147200056177,
+        "end_to_end_p95_ms": 43.071359250552625,
+        "end_to_end_p99_ms": 45.704317471172544,
+        "end_to_end_stddev_ms": 2.432398484911211,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 1
+    },
+    {
+      "mode": "reuse_pinned",
+      "output_policy": {
+        "memory": "pinned",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 4,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b4.engine",
+        "size_bytes": 54450988,
+        "sha256": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "45d7400da84e1a08ffc1325fca297b9f70977d3e2889f4f26df9b2f2395f6726",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 4,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 12.22907295598634,
+        "inference_mean_ms": 13.309040937991085,
+        "inference_p50_ms": 13.41031300034956,
+        "inference_p95_ms": 13.739673199506797,
+        "inference_p99_ms": 14.227576520424918,
+        "postprocess_mean_ms": 11.798435261971463,
+        "end_to_end_mean_ms": 37.43284344197309,
+        "throughput_images_per_second": 300.5475765411369,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.5101255803544229,
+        "end_to_end_p50_ms": 36.44091499973001,
+        "end_to_end_p95_ms": 41.86033795040203,
+        "end_to_end_p99_ms": 44.19734327846526,
+        "end_to_end_stddev_ms": 2.404886132594032,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 1
+    },
+    {
+      "mode": "original",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": false,
+        "ownership": "owned"
+      },
+      "batch_size": 8,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "addd5d3375482be2a2db2d5686152e4efd35b857f59a95f281b50fb83cd482ff",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ],
+        [
+          640,
+          428,
+          3
+        ],
+        [
+          425,
+          640,
+          3
+        ],
+        [
+          640,
+          424,
+          3
+        ],
+        [
+          640,
+          621,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 8,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 28.865699470024992,
+        "inference_mean_ms": 27.534813176014723,
+        "inference_p50_ms": 27.354792000551242,
+        "inference_p95_ms": 28.009759350243254,
+        "inference_p99_ms": 38.779117549111106,
+        "postprocess_mean_ms": 18.511166930024046,
+        "end_to_end_mean_ms": 75.02962286390539,
+        "throughput_images_per_second": 290.54128491304647,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 1.7133824729800955,
+        "end_to_end_p50_ms": 73.38169949889561,
+        "end_to_end_p95_ms": 81.90426915098215,
+        "end_to_end_p99_ms": 88.75818976084702,
+        "end_to_end_stddev_ms": 4.2263355359479196,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 1
+    },
+    {
+      "mode": "reuse_pageable",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 8,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "addd5d3375482be2a2db2d5686152e4efd35b857f59a95f281b50fb83cd482ff",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ],
+        [
+          640,
+          428,
+          3
+        ],
+        [
+          425,
+          640,
+          3
+        ],
+        [
+          640,
+          424,
+          3
+        ],
+        [
+          640,
+          621,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 8,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 28.350331852041563,
+        "inference_mean_ms": 27.67559394797354,
+        "inference_p50_ms": 27.718112499314884,
+        "inference_p95_ms": 28.368460800356843,
+        "inference_p99_ms": 28.944965619702998,
+        "postprocess_mean_ms": 20.054595229965344,
+        "end_to_end_mean_ms": 76.2039121339767,
+        "throughput_images_per_second": 289.0633536190386,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.6416531532001879,
+        "end_to_end_p50_ms": 74.65420050084504,
+        "end_to_end_p95_ms": 82.17129405102241,
+        "end_to_end_p99_ms": 84.68579144882824,
+        "end_to_end_stddev_ms": 3.462695745643665,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 1
+    },
+    {
+      "mode": "reuse_pinned",
+      "output_policy": {
+        "memory": "pinned",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 8,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "addd5d3375482be2a2db2d5686152e4efd35b857f59a95f281b50fb83cd482ff",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ],
+        [
+          640,
+          428,
+          3
+        ],
+        [
+          425,
+          640,
+          3
+        ],
+        [
+          640,
+          424,
+          3
+        ],
+        [
+          640,
+          621,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 8,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 28.8020815379532,
+        "inference_mean_ms": 24.43885255997884,
+        "inference_p50_ms": 24.47371300058876,
+        "inference_p95_ms": 25.06857270027467,
+        "inference_p99_ms": 25.260102569718583,
+        "postprocess_mean_ms": 20.424481947975437,
+        "end_to_end_mean_ms": 73.79276749600103,
+        "throughput_images_per_second": 327.3476109553863,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.5485242286580327,
+        "end_to_end_p50_ms": 72.10247250077373,
+        "end_to_end_p95_ms": 79.48312760117915,
+        "end_to_end_p99_ms": 81.12999287895944,
+        "end_to_end_stddev_ms": 3.8749619360530394,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 1
+    },
+    {
+      "mode": "reuse_pageable",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 8,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "addd5d3375482be2a2db2d5686152e4efd35b857f59a95f281b50fb83cd482ff",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ],
+        [
+          640,
+          428,
+          3
+        ],
+        [
+          425,
+          640,
+          3
+        ],
+        [
+          640,
+          424,
+          3
+        ],
+        [
+          640,
+          621,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 8,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 28.982304286022554,
+        "inference_mean_ms": 27.788927076006075,
+        "inference_p50_ms": 27.850927999679698,
+        "inference_p95_ms": 28.469270700043126,
+        "inference_p99_ms": 28.83892264935639,
+        "postprocess_mean_ms": 20.29570690601031,
+        "end_to_end_mean_ms": 77.19398907395589,
+        "throughput_images_per_second": 287.8844504546373,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.5919014841518881,
+        "end_to_end_p50_ms": 75.70754799962742,
+        "end_to_end_p95_ms": 82.99668110030325,
+        "end_to_end_p99_ms": 87.77959973976976,
+        "end_to_end_stddev_ms": 3.9410857369617127,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 2
+    },
+    {
+      "mode": "reuse_pinned",
+      "output_policy": {
+        "memory": "pinned",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 8,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "addd5d3375482be2a2db2d5686152e4efd35b857f59a95f281b50fb83cd482ff",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ],
+        [
+          640,
+          428,
+          3
+        ],
+        [
+          425,
+          640,
+          3
+        ],
+        [
+          640,
+          424,
+          3
+        ],
+        [
+          640,
+          621,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 8,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 29.028325459985354,
+        "inference_mean_ms": 24.38884470596531,
+        "inference_p50_ms": 24.527150500034622,
+        "inference_p95_ms": 25.05552469938266,
+        "inference_p99_ms": 25.391639380104607,
+        "postprocess_mean_ms": 19.695542011995713,
+        "end_to_end_mean_ms": 73.23469398798261,
+        "throughput_images_per_second": 328.01881747368157,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.8371426767038632,
+        "end_to_end_p50_ms": 71.94760249876708,
+        "end_to_end_p95_ms": 79.42570139921372,
+        "end_to_end_p99_ms": 82.63022375005673,
+        "end_to_end_stddev_ms": 3.657603241716135,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 2
+    },
+    {
+      "mode": "original",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": false,
+        "ownership": "owned"
+      },
+      "batch_size": 8,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "addd5d3375482be2a2db2d5686152e4efd35b857f59a95f281b50fb83cd482ff",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ],
+        [
+          640,
+          428,
+          3
+        ],
+        [
+          425,
+          640,
+          3
+        ],
+        [
+          640,
+          424,
+          3
+        ],
+        [
+          640,
+          621,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 8,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 32.079005163992406,
+        "inference_mean_ms": 32.25002202592077,
+        "inference_p50_ms": 29.626230499161466,
+        "inference_p95_ms": 40.07726959998763,
+        "inference_p99_ms": 40.70687579916921,
+        "postprocess_mean_ms": 19.526780139964103,
+        "end_to_end_mean_ms": 83.98109649207981,
+        "throughput_images_per_second": 248.06184608401338,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 5.087161253671224,
+        "end_to_end_p50_ms": 83.762454499265,
+        "end_to_end_p95_ms": 93.7597172009191,
+        "end_to_end_p99_ms": 95.76740303960833,
+        "end_to_end_stddev_ms": 6.005491306900259,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 2
+    },
+    {
+      "mode": "reuse_pageable",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 4,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b4.engine",
+        "size_bytes": 54450988,
+        "sha256": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "45d7400da84e1a08ffc1325fca297b9f70977d3e2889f4f26df9b2f2395f6726",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 4,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 12.531443626048713,
+        "inference_mean_ms": 15.114409895981225,
+        "inference_p50_ms": 15.135753000322438,
+        "inference_p95_ms": 15.572983899983228,
+        "inference_p99_ms": 15.998786268810363,
+        "postprocess_mean_ms": 11.507450686010998,
+        "end_to_end_mean_ms": 39.256279982037086,
+        "throughput_images_per_second": 264.64810915731226,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.38608268408679086,
+        "end_to_end_p50_ms": 38.550882999516034,
+        "end_to_end_p95_ms": 43.362504798824375,
+        "end_to_end_p99_ms": 45.502082380462525,
+        "end_to_end_stddev_ms": 2.0856255644163677,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 2
+    },
+    {
+      "mode": "reuse_pinned",
+      "output_policy": {
+        "memory": "pinned",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 4,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b4.engine",
+        "size_bytes": 54450988,
+        "sha256": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "45d7400da84e1a08ffc1325fca297b9f70977d3e2889f4f26df9b2f2395f6726",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 4,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 12.59253115998581,
+        "inference_mean_ms": 13.476824302011664,
+        "inference_p50_ms": 13.538555000195629,
+        "inference_p95_ms": 13.943002598716703,
+        "inference_p99_ms": 14.07853634958883,
+        "postprocess_mean_ms": 12.614503205972142,
+        "end_to_end_mean_ms": 38.790508688001864,
+        "throughput_images_per_second": 296.8058283139394,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.4455983016837708,
+        "end_to_end_p50_ms": 37.655602500308305,
+        "end_to_end_p95_ms": 42.730110498814604,
+        "end_to_end_p99_ms": 45.7057548486955,
+        "end_to_end_stddev_ms": 2.6692081872292457,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 2
+    },
+    {
+      "mode": "original",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": false,
+        "ownership": "owned"
+      },
+      "batch_size": 4,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b4.engine",
+        "size_bytes": 54450988,
+        "sha256": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "45d7400da84e1a08ffc1325fca297b9f70977d3e2889f4f26df9b2f2395f6726",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 4,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 12.85557009997865,
+        "inference_mean_ms": 15.153147458022431,
+        "inference_p50_ms": 15.186046500275552,
+        "inference_p95_ms": 15.777260148570349,
+        "inference_p99_ms": 16.04186960074003,
+        "postprocess_mean_ms": 11.47453438998491,
+        "end_to_end_mean_ms": 39.58807918802631,
+        "throughput_images_per_second": 263.97156175513265,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.47952379544513846,
+        "end_to_end_p50_ms": 38.6868855002831,
+        "end_to_end_p95_ms": 43.81870470042486,
+        "end_to_end_p99_ms": 45.969243750132584,
+        "end_to_end_stddev_ms": 2.3503463337562462,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 2
+    },
+    {
+      "mode": "reuse_pinned",
+      "output_policy": {
+        "memory": "pinned",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 4,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b4.engine",
+        "size_bytes": 54450988,
+        "sha256": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "45d7400da84e1a08ffc1325fca297b9f70977d3e2889f4f26df9b2f2395f6726",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 4,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 12.51377409001725,
+        "inference_mean_ms": 13.530980979998276,
+        "inference_p50_ms": 13.518327498786675,
+        "inference_p95_ms": 13.899605651477032,
+        "inference_p99_ms": 14.303338878689829,
+        "postprocess_mean_ms": 11.324912146024872,
+        "end_to_end_mean_ms": 37.47074050598894,
+        "throughput_images_per_second": 295.6178865311294,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.2522722358282608,
+        "end_to_end_p50_ms": 36.750544499227544,
+        "end_to_end_p95_ms": 40.86912460061285,
+        "end_to_end_p99_ms": 44.71693269051684,
+        "end_to_end_stddev_ms": 2.1679396362500456,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 3
+    },
+    {
+      "mode": "original",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": false,
+        "ownership": "owned"
+      },
+      "batch_size": 4,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b4.engine",
+        "size_bytes": 54450988,
+        "sha256": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "45d7400da84e1a08ffc1325fca297b9f70977d3e2889f4f26df9b2f2395f6726",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 4,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 12.782604832023935,
+        "inference_mean_ms": 15.195719199982705,
+        "inference_p50_ms": 15.241542500916694,
+        "inference_p95_ms": 15.702173100362415,
+        "inference_p99_ms": 15.889120270530837,
+        "postprocess_mean_ms": 12.51415524197364,
+        "end_to_end_mean_ms": 40.59960831802164,
+        "throughput_images_per_second": 263.23202918915166,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.4094708474484078,
+        "end_to_end_p50_ms": 39.63774049952917,
+        "end_to_end_p95_ms": 44.62855830015542,
+        "end_to_end_p99_ms": 47.749527440646474,
+        "end_to_end_stddev_ms": 2.551449009849208,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 3
+    },
+    {
+      "mode": "reuse_pageable",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 4,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b4.engine",
+        "size_bytes": 54450988,
+        "sha256": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "45d7400da84e1a08ffc1325fca297b9f70977d3e2889f4f26df9b2f2395f6726",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 4,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 12.252912502044637,
+        "inference_mean_ms": 14.982710240004963,
+        "inference_p50_ms": 15.092528999957722,
+        "inference_p95_ms": 15.484238800581807,
+        "inference_p99_ms": 15.718790128612453,
+        "postprocess_mean_ms": 11.533575077999558,
+        "end_to_end_mean_ms": 38.863305500017304,
+        "throughput_images_per_second": 266.9743948808206,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.5582446779564426,
+        "end_to_end_p50_ms": 37.91751900007512,
+        "end_to_end_p95_ms": 42.95612250107297,
+        "end_to_end_p99_ms": 45.22183080009199,
+        "end_to_end_stddev_ms": 2.559704269917803,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 3
+    },
+    {
+      "mode": "reuse_pinned",
+      "output_policy": {
+        "memory": "pinned",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 8,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "addd5d3375482be2a2db2d5686152e4efd35b857f59a95f281b50fb83cd482ff",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ],
+        [
+          640,
+          428,
+          3
+        ],
+        [
+          425,
+          640,
+          3
+        ],
+        [
+          640,
+          424,
+          3
+        ],
+        [
+          640,
+          621,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 8,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 28.16376389996367,
+        "inference_mean_ms": 24.182956014028605,
+        "inference_p50_ms": 24.39548250004009,
+        "inference_p95_ms": 24.999610699796904,
+        "inference_p99_ms": 25.54296914006045,
+        "postprocess_mean_ms": 18.554316854042554,
+        "end_to_end_mean_ms": 71.02086930000951,
+        "throughput_images_per_second": 330.81150192553696,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 1.0908672102934451,
+        "end_to_end_p50_ms": 70.06391899994924,
+        "end_to_end_p95_ms": 77.68401065068247,
+        "end_to_end_p99_ms": 84.23756358923127,
+        "end_to_end_stddev_ms": 3.4863743150868363,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 3
+    },
+    {
+      "mode": "original",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": false,
+        "ownership": "owned"
+      },
+      "batch_size": 8,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "addd5d3375482be2a2db2d5686152e4efd35b857f59a95f281b50fb83cd482ff",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ],
+        [
+          640,
+          428,
+          3
+        ],
+        [
+          425,
+          640,
+          3
+        ],
+        [
+          640,
+          424,
+          3
+        ],
+        [
+          640,
+          621,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 8,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 28.699941459984984,
+        "inference_mean_ms": 27.779759021992504,
+        "inference_p50_ms": 27.5464615006058,
+        "inference_p95_ms": 28.722896651106556,
+        "inference_p99_ms": 39.0675719398132,
+        "postprocess_mean_ms": 19.255483527969773,
+        "end_to_end_mean_ms": 75.85520303403246,
+        "throughput_images_per_second": 287.9794599249983,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 1.881527797718824,
+        "end_to_end_p50_ms": 74.38909749998857,
+        "end_to_end_p95_ms": 83.83715635090994,
+        "end_to_end_p99_ms": 90.16463468973598,
+        "end_to_end_stddev_ms": 3.971394966987542,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 3
+    },
+    {
+      "mode": "reuse_pageable",
+      "output_policy": {
+        "memory": "pageable",
+        "reuse": true,
+        "ownership": "borrowed"
+      },
+      "batch_size": 8,
+      "environment": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "python": "3.13.16",
+        "torch": "2.11.0+cu130",
+        "torch_cuda": "13.0",
+        "cuda_available": true,
+        "gpu_index": 0,
+        "gpu": "Tesla T4",
+        "gpu_compute_capability": "7.5",
+        "ultralytics": "8.4.220",
+        "onnx": "1.21.0",
+        "onnxruntime": "1.30.0",
+        "tensorrt": "11.5.0.63",
+        "driver_version": "580.178.04",
+        "gpu_memory_total_mib": 15360.0,
+        "gpu_power_limit_w": 70.0,
+        "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+      },
+      "engine": {
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      },
+      "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "input_images_sha256": "addd5d3375482be2a2db2d5686152e4efd35b857f59a95f281b50fb83cd482ff",
+      "input_shapes": [
+        [
+          426,
+          640,
+          3
+        ],
+        [
+          640,
+          586,
+          3
+        ],
+        [
+          483,
+          640,
+          3
+        ],
+        [
+          500,
+          375,
+          3
+        ],
+        [
+          640,
+          428,
+          3
+        ],
+        [
+          425,
+          640,
+          3
+        ],
+        [
+          640,
+          424,
+          3
+        ],
+        [
+          640,
+          621,
+          3
+        ]
+      ],
+      "opencv_threads": 1,
+      "torch_threads": 2,
+      "torch_interop_threads": 2,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "numpy_version": "2.1.3",
+      "opencv_version": "4.14.0",
+      "gpu_monitor_enabled": false,
+      "benchmark_only": true,
+      "validation_array_policy": "released_before_warmup",
+      "output_allclose_passed": true,
+      "max_abs_output_error": 0.0,
+      "control": {
+        "backend": "tensorrt",
+        "batch_size": 8,
+        "image_size": [
+          640,
+          640
+        ],
+        "warmup_runs": 50,
+        "measured_runs": 500,
+        "precision": "fp16",
+        "preprocess_mean_ms": 28.354735045963025,
+        "inference_mean_ms": 27.525205858004483,
+        "inference_p50_ms": 27.59921899996698,
+        "inference_p95_ms": 28.227952849829308,
+        "inference_p99_ms": 28.773320659729507,
+        "postprocess_mean_ms": 18.61285051800951,
+        "end_to_end_mean_ms": 74.61181991595367,
+        "throughput_images_per_second": 290.64269460035865,
+        "cuda_memory_allocated_mib": 0.0,
+        "inference_stddev_ms": 0.7002258835306588,
+        "end_to_end_p50_ms": 73.75984700047411,
+        "end_to_end_p95_ms": 81.21983529945282,
+        "end_to_end_p99_ms": 83.19988298968381,
+        "end_to_end_stddev_ms": 3.1825620971230575,
+        "images_per_second_per_watt": null,
+        "gpu_metrics": null
+      },
+      "repeat": 3
+    }
+  ]
+}

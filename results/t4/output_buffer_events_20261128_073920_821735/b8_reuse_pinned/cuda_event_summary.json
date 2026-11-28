@@ -1,0 +1,53 @@
+{
+  "profiled": {
+    "backend": "tensorrt",
+    "batch_size": 8,
+    "image_size": [
+      640,
+      640
+    ],
+    "warmup_runs": 50,
+    "measured_runs": 100,
+    "precision": "fp16",
+    "preprocess_mean_ms": 27.824268610038416,
+    "inference_mean_ms": 23.32695169010549,
+    "inference_p50_ms": 24.24342200083629,
+    "inference_p95_ms": 24.728428949947556,
+    "inference_p99_ms": 26.216830240518902,
+    "postprocess_mean_ms": 17.823509899935743,
+    "end_to_end_mean_ms": 69.09180745984486,
+    "throughput_images_per_second": 342.9509395946206,
+    "cuda_memory_allocated_mib": 0.0,
+    "inference_stddev_ms": 1.7610650937461405,
+    "end_to_end_p50_ms": 68.56988300023659,
+    "end_to_end_p95_ms": 74.63442524904167,
+    "end_to_end_p99_ms": 82.21594528920834,
+    "end_to_end_stddev_ms": 3.417968465408895,
+    "images_per_second_per_watt": null,
+    "gpu_metrics": null
+  },
+  "stage_mean_ms": {
+    "h2d_call_wall_ms": 8.665984060080518,
+    "input_conversion_call_wall_ms": 0.0977862599575019,
+    "shape_buffers_wall_ms": 0.14033626994205406,
+    "enqueue_call_wall_ms": 1.9692011500956141,
+    "device_sync_wait_wall_ms": 10.368113679887756,
+    "output_conversion_call_wall_ms": 0.025997939937951742,
+    "host_output_call_wall_ms": 1.8952739001360897,
+    "numpy_view_wall_ms": 0.025789710016397294,
+    "backend_wall_before_event_readout_ms": 23.195391229965026,
+    "h2d_event_ms": 8.639154558181763,
+    "input_conversion_event_ms": 0.10188800007104874,
+    "execution_event_ms": 12.309880628585816,
+    "output_conversion_event_ms": 0.015493440013378858,
+    "d2h_event_ms": 1.8889862370491028
+  },
+  "notes": [
+    "Diagnostic only; do not aggregate with uninstrumented controls.",
+    "Events measure selected-stream elapsed intervals, including possible host submission gaps.",
+    "Pageable staging/allocation is not isolated; D2H is not a pure DMA bandwidth measurement.",
+    "Stage event intervals are not additive to CPU E2E or proof of kernel-only execution time.",
+    "Synchronous execution/copies are preserved; this is not an overlap experiment.",
+    "backend_wall_before_event_readout_ms excludes event readout/bookkeeping; event_latency.csv includes it."
+  ]
+}
