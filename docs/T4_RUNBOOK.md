@@ -131,3 +131,57 @@ GPU CSV 以 200 ms 采样 utilization、memory、temperature、power、SM clock 
 1. T4 平台内 PyTorch/ORT/TensorRT 和 FP32/FP16/INT8 对比；
 2. L20 与 T4 的相同 workload 对比；
 3. 精度、吞吐、尾延迟、显存和功耗效率之间的部署建议。
+
+## 8. Kaggle：原输出与 pinned 输出的前处理细分
+
+当 pinned 输出缩短 inference，却使 E2E 变慢时，使用独立诊断脚本
+`scripts/profile_t4_preprocess.py`。先将该新文件同步到 Kaggle 项目；它不会
+自动出现在尚未更新的远程仓库中，也不需要重新构建 Engine。
+
+在 Notebook 的 Python 单元格执行：
+
+```python
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+project = Path("/kaggle/working/yolo_inference_benchmark")
+script = project / "scripts/profile_t4_preprocess.py"
+assert script.is_file(), "请先同步诊断脚本到 Kaggle"
+output = project / "results/t4" / (
+    "preprocess_breakdown_" + datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+)
+
+for mode in ["original", "pinned"]:
+    subprocess.run([
+        sys.executable, str(script),
+        "--engine", str(project / "artifacts/t4/yolo11n_t4_fp16_b8.engine"),
+        "--source", "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+        "--batch", "8", "--mode", mode,
+        "--output-dir", str(output / mode),
+    ], cwd=project, check=True)
+
+print("两种模式全部完成：", output)
+```
+
+每种模式均先进行一轮未插桩的完整 pipeline 对照，再进行一轮细分计时，
+默认各自 warmup=50、runs=500。正式计时不启用 GPU monitor。脚本验证
+前处理数组/坐标元信息不变，并检查同批输入的输出数值接近。
+
+每个模式的目录保存 `summary.json`、`control_latency.csv`、
+`profiled_latency.csv` 和 `preprocess_samples.csv`。细分项为：
+
+- `letterbox_ms`：resize 与 padding；
+- `color_ms`：BGR 转 RGB；
+- `layout_normalize_ms`：原有布局转换、float32 转换和归一化表达式；
+- `stack_ms`：NumPy batch 拼接；
+- `body_total_ms`：函数体内计时；
+- `outer_preprocess_ms`：benchmark 的外层前处理计时；
+- `outside_body_ms`：外层减函数体时间，包含返回清理、调用方赋值及插桩开销，
+  不能直接当成纯内存释放耗时。
+
+先比较 control 与 profiled 的前处理时间，以及两种模式的整体现象是否仍然
+复现；若插桩明显改变结果，不能直接用分段时间解释原测量。这是一次定位运行，
+不提供统计显著性结论。pinned 模式返回会复用的 NumPy view，仅用于当前推理后
+立即完成后处理的同步流程，不能无条件替换正式后端的独立输出所有权语义。
