@@ -1,0 +1,236 @@
+[
+  { "count" : 1955 }
+, { "name" : "/model.23/Constant_15_output_0 + ONNXTRT_Broadcast_109", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/Constant_13_output_0", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/Constant_12_output_0", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "images_cast_to_fp16", "timeMs" : 339.396, "averageMs" : 0.173604, "medianMs" : 0.172, "percentage" : 3.24271 }
+, { "name" : "/model.0/conv/Conv", "timeMs" : 228.665, "averageMs" : 0.116964, "medianMs" : 0.116736, "percentage" : 2.18475 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(/model.0/act/Sigmoid), PWN(/model.0/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl6_0", "timeMs" : 219.169, "averageMs" : 0.112107, "medianMs" : 0.112256, "percentage" : 2.09402 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.1/conv/Conv + PWN(PWN(/model.1/act/Sigmoid), PWN(/model.1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.1/conv/Conv + PWN(PWN(/model.1/act/Sigmoid), PWN(/model.1/act/Mul))", "timeMs" : 328.615, "averageMs" : 0.168089, "medianMs" : 0.167936, "percentage" : 3.13971 }
+, { "name" : "/model.2/cv1/conv/Conv + PWN(PWN(/model.2/cv1/act/Sigmoid), PWN(/model.2/cv1/act/Mul))", "timeMs" : 139.281, "averageMs" : 0.0712435, "medianMs" : 0.071392, "percentage" : 1.33074 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.2/cv1/conv/Conv + PWN(PWN(/model.2/cv1/act/Sigmoid), PWN(/model.2/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.2/Split_1", "timeMs" : 104.774, "averageMs" : 0.053593, "medianMs" : 0.053376, "percentage" : 1.00105 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.2/m.0/cv1/conv/Conv + PWN(PWN(/model.2/m.0/cv1/act/Sigmoid), PWN(/model.2/m.0/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.2/m.0/cv1/conv/Conv + PWN(PWN(/model.2/m.0/cv1/act/Sigmoid), PWN(/model.2/m.0/cv1/act/Mul))", "timeMs" : 120.452, "averageMs" : 0.0616123, "medianMs" : 0.06144, "percentage" : 1.15084 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.2/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.2/m.0/cv2/act/Sigmoid), PWN(/model.2/m.0/cv2/act/Mul)), PWN(/model.2/m.0/Add))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "Reformatting CopyNode for Input Tensor 1 to /model.2/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.2/m.0/cv2/act/Sigmoid), PWN(/model.2/m.0/cv2/act/Mul)), PWN(/model.2/m.0/Add))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.2/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.2/m.0/cv2/act/Sigmoid), PWN(/model.2/m.0/cv2/act/Mul)), PWN(/model.2/m.0/Add))", "timeMs" : 162.356, "averageMs" : 0.0830465, "medianMs" : 0.082976, "percentage" : 1.55121 }
+, { "name" : "/model.2/Split_output_0 copy", "timeMs" : 115.327, "averageMs" : 0.058991, "medianMs" : 0.059136, "percentage" : 1.10188 }
+, { "name" : "/model.2/Split_output_1 copy", "timeMs" : 103.415, "averageMs" : 0.0528977, "medianMs" : 0.052992, "percentage" : 0.988065 }
+, { "name" : "/model.2/m.0/Add_output_0 copy", "timeMs" : 100.907, "averageMs" : 0.0516147, "medianMs" : 0.051392, "percentage" : 0.9641 }
+, { "name" : "/model.2/cv2/conv/Conv + PWN(PWN(/model.2/cv2/act/Sigmoid), PWN(/model.2/cv2/act/Mul))", "timeMs" : 240.708, "averageMs" : 0.123124, "medianMs" : 0.122912, "percentage" : 2.29982 }
+, { "name" : "/model.3/conv/Conv + PWN(PWN(/model.3/act/Sigmoid), PWN(/model.3/act/Mul))", "timeMs" : 268.39, "averageMs" : 0.137284, "medianMs" : 0.137216, "percentage" : 2.56429 }
+, { "name" : "/model.4/cv1/conv/Conv + PWN(PWN(/model.4/cv1/act/Sigmoid), PWN(/model.4/cv1/act/Mul))", "timeMs" : 91.957, "averageMs" : 0.0470368, "medianMs" : 0.047104, "percentage" : 0.878591 }
+, { "name" : "/model.4/Split_4", "timeMs" : 62.2374, "averageMs" : 0.031835, "medianMs" : 0.031808, "percentage" : 0.594639 }
+, { "name" : "/model.4/m.0/cv1/conv/Conv + PWN(PWN(/model.4/m.0/cv1/act/Sigmoid), PWN(/model.4/m.0/cv1/act/Mul))", "timeMs" : 64.3796, "averageMs" : 0.0329308, "medianMs" : 0.032768, "percentage" : 0.615107 }
+, { "name" : "/model.4/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.4/m.0/cv2/act/Sigmoid), PWN(/model.4/m.0/cv2/act/Mul)), PWN(/model.4/m.0/Add))", "timeMs" : 76.6333, "averageMs" : 0.0391986, "medianMs" : 0.038944, "percentage" : 0.732183 }
+, { "name" : "/model.4/Split_output_0 copy", "timeMs" : 36.3581, "averageMs" : 0.0185975, "medianMs" : 0.018432, "percentage" : 0.347379 }
+, { "name" : "/model.4/Split_output_1 copy", "timeMs" : 34.2049, "averageMs" : 0.0174961, "medianMs" : 0.017504, "percentage" : 0.326806 }
+, { "name" : "/model.4/m.0/Add_output_0 copy", "timeMs" : 34.5927, "averageMs" : 0.0176945, "medianMs" : 0.017696, "percentage" : 0.330511 }
+, { "name" : "/model.4/cv2/conv/Conv + PWN(PWN(/model.4/cv2/act/Sigmoid), PWN(/model.4/cv2/act/Mul))", "timeMs" : 166.472, "averageMs" : 0.0851517, "medianMs" : 0.085152, "percentage" : 1.59053 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.5/conv/Conv + PWN(PWN(/model.5/act/Sigmoid), PWN(/model.5/act/Mul))", "timeMs" : 129.975, "averageMs" : 0.0664834, "medianMs" : 0.066272, "percentage" : 1.24183 }
+, { "name" : "/model.5/conv/Conv + PWN(PWN(/model.5/act/Sigmoid), PWN(/model.5/act/Mul))", "timeMs" : 188.971, "averageMs" : 0.0966604, "medianMs" : 0.096352, "percentage" : 1.8055 }
+, { "name" : "/model.6/cv1/conv/Conv + PWN(PWN(/model.6/cv1/act/Sigmoid), PWN(/model.6/cv1/act/Mul))", "timeMs" : 47.1819, "averageMs" : 0.024134, "medianMs" : 0.024288, "percentage" : 0.450793 }
+, { "name" : "/model.6/m.0/cv1/conv/Conv || /model.6/m.0/cv2/conv/Conv", "timeMs" : 30.4674, "averageMs" : 0.0155843, "medianMs" : 0.015584, "percentage" : 0.291097 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.6/m.0/cv1/conv/Conv || /model.6/m.0/cv2/conv/Conv", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl35_0", "timeMs" : 13.4937, "averageMs" : 0.00690216, "medianMs" : 0.006784, "percentage" : 0.128924 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to PWN(PWN(/model.6/m.0/cv1/act/Sigmoid), PWN(/model.6/m.0/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.6/m.0/m/m.0/cv1/conv/Conv + PWN(PWN(/model.6/m.0/m/m.0/cv1/act/Sigmoid), PWN(/model.6/m.0/m/m.0/cv1/act/Mul))", "timeMs" : 40.3282, "averageMs" : 0.0206282, "medianMs" : 0.02048, "percentage" : 0.38531 }
+, { "name" : "/model.6/m.0/m/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.6/m.0/m/m.0/cv2/act/Sigmoid), PWN(/model.6/m.0/m/m.0/cv2/act/Mul)), PWN(/model.6/m.0/m/m.0/Add))", "timeMs" : 37.303, "averageMs" : 0.0190808, "medianMs" : 0.01888, "percentage" : 0.356407 }
+, { "name" : "/model.6/m.0/m/m.1/cv1/conv/Conv + PWN(PWN(/model.6/m.0/m/m.1/cv1/act/Sigmoid), PWN(/model.6/m.0/m/m.1/cv1/act/Mul))", "timeMs" : 40.478, "averageMs" : 0.0207049, "medianMs" : 0.020512, "percentage" : 0.386742 }
+, { "name" : "/model.6/m.0/m/m.1/cv2/conv/Conv + PWN(PWN(PWN(/model.6/m.0/m/m.1/cv2/act/Sigmoid), PWN(/model.6/m.0/m/m.1/cv2/act/Mul)), PWN(/model.6/m.0/m/m.1/Add))", "timeMs" : 36.3379, "averageMs" : 0.0185872, "medianMs" : 0.018432, "percentage" : 0.347185 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl41_0", "timeMs" : 14.2352, "averageMs" : 0.00728145, "medianMs" : 0.007328, "percentage" : 0.136009 }
+, { "name" : "/model.6/m.0/m/m.1/Add_output_0 copy", "timeMs" : 20.1736, "averageMs" : 0.010319, "medianMs" : 0.01024, "percentage" : 0.192746 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.6/m.0/cv3/conv/Conv + PWN(PWN(/model.6/m.0/cv3/act/Sigmoid), PWN(/model.6/m.0/cv3/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.6/m.0/cv3/conv/Conv + PWN(PWN(/model.6/m.0/cv3/act/Sigmoid), PWN(/model.6/m.0/cv3/act/Mul))", "timeMs" : 33.2821, "averageMs" : 0.0170241, "medianMs" : 0.016832, "percentage" : 0.317989 }
+, { "name" : "/model.6/Split_output_0 copy", "timeMs" : 37.3094, "averageMs" : 0.0190841, "medianMs" : 0.018912, "percentage" : 0.356467 }
+, { "name" : "/model.6/Split_output_1 copy", "timeMs" : 37.218, "averageMs" : 0.0190373, "medianMs" : 0.01888, "percentage" : 0.355594 }
+, { "name" : "/model.6/cv2/conv/Conv + PWN(PWN(/model.6/cv2/act/Sigmoid), PWN(/model.6/cv2/act/Mul))", "timeMs" : 55.4612, "averageMs" : 0.0283689, "medianMs" : 0.02848, "percentage" : 0.529896 }
+, { "name" : "/model.7/conv/Conv + PWN(PWN(/model.7/act/Sigmoid), PWN(/model.7/act/Mul))", "timeMs" : 104.492, "averageMs" : 0.0534484, "medianMs" : 0.053248, "percentage" : 0.998352 }
+, { "name" : "/model.8/cv1/conv/Conv + PWN(PWN(/model.8/cv1/act/Sigmoid), PWN(/model.8/cv1/act/Mul))", "timeMs" : 42.5967, "averageMs" : 0.0217886, "medianMs" : 0.021824, "percentage" : 0.406984 }
+, { "name" : "/model.8/m.0/cv1/conv/Conv || /model.8/m.0/cv2/conv/Conv", "timeMs" : 27.338, "averageMs" : 0.0139836, "medianMs" : 0.014112, "percentage" : 0.261197 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.8/m.0/cv1/conv/Conv || /model.8/m.0/cv2/conv/Conv", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl52_0", "timeMs" : 12.8354, "averageMs" : 0.00656541, "medianMs" : 0.006432, "percentage" : 0.122634 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to PWN(PWN(/model.8/m.0/cv1/act/Sigmoid), PWN(/model.8/m.0/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.8/m.0/m/m.0/cv1/conv/Conv + PWN(PWN(/model.8/m.0/m/m.0/cv1/act/Sigmoid), PWN(/model.8/m.0/m/m.0/cv1/act/Mul))", "timeMs" : 42.6023, "averageMs" : 0.0217915, "medianMs" : 0.021856, "percentage" : 0.407038 }
+, { "name" : "/model.8/m.0/m/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.8/m.0/m/m.0/cv2/act/Sigmoid), PWN(/model.8/m.0/m/m.0/cv2/act/Mul)), PWN(/model.8/m.0/m/m.0/Add))", "timeMs" : 35.4029, "averageMs" : 0.0181089, "medianMs" : 0.01824, "percentage" : 0.338252 }
+, { "name" : "/model.8/m.0/m/m.1/cv1/conv/Conv + PWN(PWN(/model.8/m.0/m/m.1/cv1/act/Sigmoid), PWN(/model.8/m.0/m/m.1/cv1/act/Mul))", "timeMs" : 41.7793, "averageMs" : 0.0213705, "medianMs" : 0.021216, "percentage" : 0.399174 }
+, { "name" : "/model.8/m.0/m/m.1/cv2/conv/Conv + PWN(PWN(PWN(/model.8/m.0/m/m.1/cv2/act/Sigmoid), PWN(/model.8/m.0/m/m.1/cv2/act/Mul)), PWN(/model.8/m.0/m/m.1/Add))", "timeMs" : 34.4288, "averageMs" : 0.0176106, "medianMs" : 0.0176, "percentage" : 0.328946 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl58_0", "timeMs" : 13.2153, "averageMs" : 0.00675972, "medianMs" : 0.006688, "percentage" : 0.126263 }
+, { "name" : "/model.8/m.0/m/m.1/Add_output_0 copy", "timeMs" : 15.8464, "averageMs" : 0.00810557, "medianMs" : 0.008192, "percentage" : 0.151402 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.8/m.0/cv3/conv/Conv + PWN(PWN(/model.8/m.0/cv3/act/Sigmoid), PWN(/model.8/m.0/cv3/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.8/m.0/cv3/conv/Conv + PWN(PWN(/model.8/m.0/cv3/act/Sigmoid), PWN(/model.8/m.0/cv3/act/Mul))", "timeMs" : 33.6331, "averageMs" : 0.0172036, "medianMs" : 0.017088, "percentage" : 0.321343 }
+, { "name" : "/model.8/Split_output_0 copy", "timeMs" : 22.1162, "averageMs" : 0.0113126, "medianMs" : 0.011232, "percentage" : 0.211306 }
+, { "name" : "/model.8/Split_output_1 copy", "timeMs" : 22.2708, "averageMs" : 0.0113917, "medianMs" : 0.011456, "percentage" : 0.212783 }
+, { "name" : "/model.8/cv2/conv/Conv + PWN(PWN(/model.8/cv2/act/Sigmoid), PWN(/model.8/cv2/act/Mul))", "timeMs" : 51.2279, "averageMs" : 0.0262035, "medianMs" : 0.026336, "percentage" : 0.48945 }
+, { "name" : "/model.9/cv1/conv/Conv + PWN(PWN(/model.9/cv1/act/Sigmoid), PWN(/model.9/cv1/act/Mul))", "timeMs" : 39.395, "averageMs" : 0.0201509, "medianMs" : 0.020288, "percentage" : 0.376395 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.9/cv1/conv/Conv + PWN(PWN(/model.9/cv1/act/Sigmoid), PWN(/model.9/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.9/m/MaxPool", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.9/m/MaxPool", "timeMs" : 30.2736, "averageMs" : 0.0154852, "medianMs" : 0.01552, "percentage" : 0.289245 }
+, { "name" : "/model.9/m_1/MaxPool", "timeMs" : 29.6408, "averageMs" : 0.0151616, "medianMs" : 0.014944, "percentage" : 0.283199 }
+, { "name" : "/model.9/m_2/MaxPool", "timeMs" : 29.4841, "averageMs" : 0.0150814, "medianMs" : 0.014944, "percentage" : 0.281702 }
+, { "name" : "/model.9/cv1/act/Mul_output_0 copy", "timeMs" : 20.2293, "averageMs" : 0.0103475, "medianMs" : 0.01024, "percentage" : 0.193278 }
+, { "name" : "/model.9/m/MaxPool_output_0 copy", "timeMs" : 21.6568, "averageMs" : 0.0110776, "medianMs" : 0.010976, "percentage" : 0.206917 }
+, { "name" : "/model.9/m_1/MaxPool_output_0 copy", "timeMs" : 21.2854, "averageMs" : 0.0108877, "medianMs" : 0.010688, "percentage" : 0.203369 }
+, { "name" : "/model.9/cv2/conv/Conv + PWN(PWN(/model.9/cv2/act/Sigmoid), PWN(/model.9/cv2/act/Mul))", "timeMs" : 59.5053, "averageMs" : 0.0304375, "medianMs" : 0.030528, "percentage" : 0.568536 }
+, { "name" : "/model.10/cv1/conv/Conv + PWN(PWN(/model.10/cv1/act/Sigmoid), PWN(/model.10/cv1/act/Mul))", "timeMs" : 42.4062, "averageMs" : 0.0216912, "medianMs" : 0.021664, "percentage" : 0.405164 }
+, { "name" : "/model.10/Split_13", "timeMs" : 21.8546, "averageMs" : 0.0111788, "medianMs" : 0.011104, "percentage" : 0.208807 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.10/m/m.0/attn/qkv/conv/Conv", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.10/m/m.0/attn/qkv/conv/Conv", "timeMs" : 30.5572, "averageMs" : 0.0156303, "medianMs" : 0.01568, "percentage" : 0.291955 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.10/m/m.0/attn/Reshape", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.10/m/m.0/attn/Reshape", "timeMs" : 52.0633, "averageMs" : 0.0266308, "medianMs" : 0.026624, "percentage" : 0.497432 }
+, { "name" : "/model.10/m/m.0/attn/Split_18", "timeMs" : 11.5671, "averageMs" : 0.00591669, "medianMs" : 0.006016, "percentage" : 0.110517 }
+, { "name" : "/model.10/m/m.0/attn/Reshape_2", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.10/m/m.0/attn/pe/conv/Conv", "timeMs" : 26.1393, "averageMs" : 0.0133705, "medianMs" : 0.013376, "percentage" : 0.249745 }
+, { "name" : "__myl_MoveSlicSlicTran_myl84_0", "timeMs" : 16.4478, "averageMs" : 0.00841322, "medianMs" : 0.008256, "percentage" : 0.157149 }
+, { "name" : "/model.10/m/m.0/attn/MatMul_myl84_1", "timeMs" : 48.5708, "averageMs" : 0.0248444, "medianMs" : 0.02464, "percentage" : 0.464063 }
+, { "name" : "__myl_MaxrSubExpSumDiv_myl84_2", "timeMs" : 43.7756, "averageMs" : 0.0223916, "medianMs" : 0.022496, "percentage" : 0.418248 }
+, { "name" : "__myl_Tran_myl84_3", "timeMs" : 34.9156, "averageMs" : 0.0178596, "medianMs" : 0.018016, "percentage" : 0.333596 }
+, { "name" : "/model.10/m/m.0/attn/MatMul_1_myl84_4", "timeMs" : 44.3317, "averageMs" : 0.0226761, "medianMs" : 0.022528, "percentage" : 0.423561 }
+, { "name" : "__myl_Add_myl84_5", "timeMs" : 14.2677, "averageMs" : 0.00729805, "medianMs" : 0.007328, "percentage" : 0.136319 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to {ForeignNode[/model.10/m/m.0/attn/Split_16.../model.10/m/m.0/attn/Add]}", "timeMs" : 17.8872, "averageMs" : 0.00914948, "medianMs" : 0.008992, "percentage" : 0.170901 }
+, { "name" : "Reformatting CopyNode for Input Tensor 1 to /model.10/m/m.0/attn/proj/conv/Conv + /model.10/m/m.0/Add", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.10/m/m.0/attn/proj/conv/Conv + /model.10/m/m.0/Add", "timeMs" : 28.0234, "averageMs" : 0.0143342, "medianMs" : 0.014336, "percentage" : 0.267746 }
+, { "name" : "/model.10/m/m.0/ffn/ffn.0/conv/Conv + PWN(PWN(/model.10/m/m.0/ffn/ffn.0/act/Sigmoid), PWN(/model.10/m/m.0/ffn/ffn.0/act/Mul))", "timeMs" : 43.9623, "averageMs" : 0.0224871, "medianMs" : 0.022528, "percentage" : 0.420032 }
+, { "name" : "/model.10/m/m.0/ffn/ffn.1/conv/Conv + /model.10/m/m.0/Add_1", "timeMs" : 31.0798, "averageMs" : 0.0158976, "medianMs" : 0.015936, "percentage" : 0.296948 }
+, { "name" : "/model.10/Split_output_0 copy", "timeMs" : 22.7151, "averageMs" : 0.011619, "medianMs" : 0.01168, "percentage" : 0.217028 }
+, { "name" : "/model.10/m/m.0/Add_1_output_0 copy", "timeMs" : 19.8707, "averageMs" : 0.010164, "medianMs" : 0.010208, "percentage" : 0.189852 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.10/cv2/conv/Conv + PWN(PWN(/model.10/cv2/act/Sigmoid), PWN(/model.10/cv2/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.10/cv2/conv/Conv + PWN(PWN(/model.10/cv2/act/Sigmoid), PWN(/model.10/cv2/act/Mul))", "timeMs" : 44.0347, "averageMs" : 0.0225241, "medianMs" : 0.022528, "percentage" : 0.420724 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.10/cv2/conv/Conv + PWN(PWN(/model.10/cv2/act/Sigmoid), PWN(/model.10/cv2/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.11/Resize", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.11/Resize", "timeMs" : 25.1028, "averageMs" : 0.0128403, "medianMs" : 0.012576, "percentage" : 0.239842 }
+, { "name" : "/model.11/Resize_output_0 copy", "timeMs" : 59.7642, "averageMs" : 0.0305699, "medianMs" : 0.03072, "percentage" : 0.571009 }
+, { "name" : "/model.13/cv1/conv/Conv + PWN(PWN(/model.13/cv1/act/Sigmoid), PWN(/model.13/cv1/act/Mul))", "timeMs" : 88.8003, "averageMs" : 0.0454222, "medianMs" : 0.04512, "percentage" : 0.848431 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.13/cv1/conv/Conv + PWN(PWN(/model.13/cv1/act/Sigmoid), PWN(/model.13/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.13/Split_25", "timeMs" : 30.3536, "averageMs" : 0.0155261, "medianMs" : 0.01552, "percentage" : 0.290009 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.13/m.0/cv1/conv/Conv + PWN(PWN(/model.13/m.0/cv1/act/Sigmoid), PWN(/model.13/m.0/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.13/m.0/cv1/conv/Conv + PWN(PWN(/model.13/m.0/cv1/act/Sigmoid), PWN(/model.13/m.0/cv1/act/Mul))", "timeMs" : 57.9468, "averageMs" : 0.0296403, "medianMs" : 0.029504, "percentage" : 0.553644 }
+, { "name" : "Reformatting CopyNode for Input Tensor 1 to /model.13/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.13/m.0/cv2/act/Sigmoid), PWN(/model.13/m.0/cv2/act/Mul)), PWN(/model.13/m.0/Add))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.13/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.13/m.0/cv2/act/Sigmoid), PWN(/model.13/m.0/cv2/act/Mul)), PWN(/model.13/m.0/Add))", "timeMs" : 48.0978, "averageMs" : 0.0246024, "medianMs" : 0.024576, "percentage" : 0.459544 }
+, { "name" : "/model.13/Split_output_0 copy", "timeMs" : 33.1246, "averageMs" : 0.0169435, "medianMs" : 0.0168, "percentage" : 0.316485 }
+, { "name" : "/model.13/Split_output_1 copy", "timeMs" : 29.1039, "averageMs" : 0.0148869, "medianMs" : 0.014688, "percentage" : 0.27807 }
+, { "name" : "/model.13/m.0/Add_output_0 copy", "timeMs" : 34.4061, "averageMs" : 0.017599, "medianMs" : 0.017632, "percentage" : 0.328728 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.13/cv2/conv/Conv + PWN(PWN(/model.13/cv2/act/Sigmoid), PWN(/model.13/cv2/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.13/cv2/conv/Conv + PWN(PWN(/model.13/cv2/act/Sigmoid), PWN(/model.13/cv2/act/Mul))", "timeMs" : 58.5294, "averageMs" : 0.0299383, "medianMs" : 0.030016, "percentage" : 0.559211 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.13/cv2/conv/Conv + PWN(PWN(/model.13/cv2/act/Sigmoid), PWN(/model.13/cv2/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.14/Resize", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.14/Resize", "timeMs" : 69.9512, "averageMs" : 0.0357807, "medianMs" : 0.035648, "percentage" : 0.668339 }
+, { "name" : "/model.14/Resize_output_0 copy", "timeMs" : 117.713, "averageMs" : 0.0602114, "medianMs" : 0.060064, "percentage" : 1.12468 }
+, { "name" : "/model.16/cv1/conv/Conv + PWN(PWN(/model.16/cv1/act/Sigmoid), PWN(/model.16/cv1/act/Mul))", "timeMs" : 196.221, "averageMs" : 0.100369, "medianMs" : 0.100352, "percentage" : 1.87477 }
+, { "name" : "/model.16/Split_28", "timeMs" : 31.4254, "averageMs" : 0.0160744, "medianMs" : 0.016224, "percentage" : 0.300249 }
+, { "name" : "/model.16/m.0/cv1/conv/Conv + PWN(PWN(/model.16/m.0/cv1/act/Sigmoid), PWN(/model.16/m.0/cv1/act/Mul))", "timeMs" : 64.6381, "averageMs" : 0.033063, "medianMs" : 0.032768, "percentage" : 0.617576 }
+, { "name" : "/model.16/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.16/m.0/cv2/act/Sigmoid), PWN(/model.16/m.0/cv2/act/Mul)), PWN(/model.16/m.0/Add))", "timeMs" : 77.237, "averageMs" : 0.0395074, "medianMs" : 0.039264, "percentage" : 0.737951 }
+, { "name" : "/model.16/Split_output_0 copy", "timeMs" : 33.6061, "averageMs" : 0.0171898, "medianMs" : 0.017024, "percentage" : 0.321085 }
+, { "name" : "/model.16/Split_output_1 copy", "timeMs" : 34.4942, "averageMs" : 0.0176441, "medianMs" : 0.017696, "percentage" : 0.329571 }
+, { "name" : "/model.16/m.0/Add_output_0 copy", "timeMs" : 34.8766, "averageMs" : 0.0178397, "medianMs" : 0.017856, "percentage" : 0.333224 }
+, { "name" : "/model.16/cv2/conv/Conv + PWN(PWN(/model.16/cv2/act/Sigmoid), PWN(/model.16/cv2/act/Mul))", "timeMs" : 101.163, "averageMs" : 0.0517457, "medianMs" : 0.051552, "percentage" : 0.966547 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.16/cv2/conv/Conv + PWN(PWN(/model.16/cv2/act/Sigmoid), PWN(/model.16/cv2/act/Mul))", "timeMs" : 70.9232, "averageMs" : 0.0362779, "medianMs" : 0.03632, "percentage" : 0.677626 }
+, { "name" : "/model.17/conv/Conv + PWN(PWN(/model.17/act/Sigmoid), PWN(/model.17/act/Mul))", "timeMs" : 73.2436, "averageMs" : 0.0374647, "medianMs" : 0.037184, "percentage" : 0.699796 }
+, { "name" : "/model.13/cv2/act/Mul_output_0 copy", "timeMs" : 60.3333, "averageMs" : 0.030861, "medianMs" : 0.03072, "percentage" : 0.576446 }
+, { "name" : "/model.19/cv1/conv/Conv + PWN(PWN(/model.19/cv1/act/Sigmoid), PWN(/model.19/cv1/act/Mul))", "timeMs" : 55.7189, "averageMs" : 0.0285007, "medianMs" : 0.028672, "percentage" : 0.532359 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.19/cv1/conv/Conv + PWN(PWN(/model.19/cv1/act/Sigmoid), PWN(/model.19/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.19/Split_31", "timeMs" : 30.559, "averageMs" : 0.0156312, "medianMs" : 0.015648, "percentage" : 0.291972 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.19/m.0/cv1/conv/Conv + PWN(PWN(/model.19/m.0/cv1/act/Sigmoid), PWN(/model.19/m.0/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.19/m.0/cv1/conv/Conv + PWN(PWN(/model.19/m.0/cv1/act/Sigmoid), PWN(/model.19/m.0/cv1/act/Mul))", "timeMs" : 57.4212, "averageMs" : 0.0293715, "medianMs" : 0.029216, "percentage" : 0.548623 }
+, { "name" : "Reformatting CopyNode for Input Tensor 1 to /model.19/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.19/m.0/cv2/act/Sigmoid), PWN(/model.19/m.0/cv2/act/Mul)), PWN(/model.19/m.0/Add))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.19/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.19/m.0/cv2/act/Sigmoid), PWN(/model.19/m.0/cv2/act/Mul)), PWN(/model.19/m.0/Add))", "timeMs" : 48.4891, "averageMs" : 0.0248026, "medianMs" : 0.02464, "percentage" : 0.463283 }
+, { "name" : "/model.19/Split_output_0 copy", "timeMs" : 33.9846, "averageMs" : 0.0173834, "medianMs" : 0.017248, "percentage" : 0.324701 }
+, { "name" : "/model.19/Split_output_1 copy", "timeMs" : 29.2661, "averageMs" : 0.0149699, "medianMs" : 0.014848, "percentage" : 0.279619 }
+, { "name" : "/model.19/m.0/Add_output_0 copy", "timeMs" : 33.8594, "averageMs" : 0.0173194, "medianMs" : 0.017248, "percentage" : 0.323505 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.19/cv2/conv/Conv + PWN(PWN(/model.19/cv2/act/Sigmoid), PWN(/model.19/cv2/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.19/cv2/conv/Conv + PWN(PWN(/model.19/cv2/act/Sigmoid), PWN(/model.19/cv2/act/Mul))", "timeMs" : 58.4594, "averageMs" : 0.0299025, "medianMs" : 0.030016, "percentage" : 0.558543 }
+, { "name" : "/model.20/conv/Conv + PWN(PWN(/model.20/act/Sigmoid), PWN(/model.20/act/Mul))", "timeMs" : 87.1592, "averageMs" : 0.0445827, "medianMs" : 0.044704, "percentage" : 0.832751 }
+, { "name" : "/model.10/cv2/act/Mul_output_0 copy", "timeMs" : 34.8732, "averageMs" : 0.017838, "medianMs" : 0.017888, "percentage" : 0.333192 }
+, { "name" : "/model.22/cv1/conv/Conv + PWN(PWN(/model.22/cv1/act/Sigmoid), PWN(/model.22/cv1/act/Mul))", "timeMs" : 52.2477, "averageMs" : 0.0267252, "medianMs" : 0.026624, "percentage" : 0.499194 }
+, { "name" : "/model.22/m.0/cv1/conv/Conv || /model.22/m.0/cv2/conv/Conv", "timeMs" : 27.2343, "averageMs" : 0.0139306, "medianMs" : 0.013984, "percentage" : 0.260206 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.22/m.0/cv1/conv/Conv || /model.22/m.0/cv2/conv/Conv", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl142_0", "timeMs" : 12.8903, "averageMs" : 0.00659351, "medianMs" : 0.006464, "percentage" : 0.123159 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to PWN(PWN(/model.22/m.0/cv1/act/Sigmoid), PWN(/model.22/m.0/cv1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.22/m.0/m/m.0/cv1/conv/Conv + PWN(PWN(/model.22/m.0/m/m.0/cv1/act/Sigmoid), PWN(/model.22/m.0/m/m.0/cv1/act/Mul))", "timeMs" : 42.6949, "averageMs" : 0.0218388, "medianMs" : 0.021888, "percentage" : 0.407923 }
+, { "name" : "/model.22/m.0/m/m.0/cv2/conv/Conv + PWN(PWN(PWN(/model.22/m.0/m/m.0/cv2/act/Sigmoid), PWN(/model.22/m.0/m/m.0/cv2/act/Mul)), PWN(/model.22/m.0/m/m.0/Add))", "timeMs" : 35.6988, "averageMs" : 0.0182602, "medianMs" : 0.0184, "percentage" : 0.341079 }
+, { "name" : "/model.22/m.0/m/m.1/cv1/conv/Conv + PWN(PWN(/model.22/m.0/m/m.1/cv1/act/Sigmoid), PWN(/model.22/m.0/m/m.1/cv1/act/Mul))", "timeMs" : 41.7841, "averageMs" : 0.0213729, "medianMs" : 0.02128, "percentage" : 0.39922 }
+, { "name" : "/model.22/m.0/m/m.1/cv2/conv/Conv + PWN(PWN(PWN(/model.22/m.0/m/m.1/cv2/act/Sigmoid), PWN(/model.22/m.0/m/m.1/cv2/act/Mul)), PWN(/model.22/m.0/m/m.1/Add))", "timeMs" : 34.2291, "averageMs" : 0.0175085, "medianMs" : 0.01744, "percentage" : 0.327037 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl148_0", "timeMs" : 12.6587, "averageMs" : 0.00647504, "medianMs" : 0.006368, "percentage" : 0.120946 }
+, { "name" : "/model.22/m.0/m/m.1/Add_output_0 copy", "timeMs" : 15.7941, "averageMs" : 0.00807881, "medianMs" : 0.00816, "percentage" : 0.150902 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.22/m.0/cv3/conv/Conv + PWN(PWN(/model.22/m.0/cv3/act/Sigmoid), PWN(/model.22/m.0/cv3/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.22/m.0/cv3/conv/Conv + PWN(PWN(/model.22/m.0/cv3/act/Sigmoid), PWN(/model.22/m.0/cv3/act/Mul))", "timeMs" : 33.439, "averageMs" : 0.0171043, "medianMs" : 0.016928, "percentage" : 0.319488 }
+, { "name" : "/model.22/Split_output_0 copy", "timeMs" : 22.1267, "averageMs" : 0.011318, "medianMs" : 0.011328, "percentage" : 0.211406 }
+, { "name" : "/model.22/Split_output_1 copy", "timeMs" : 21.6596, "averageMs" : 0.0110791, "medianMs" : 0.01088, "percentage" : 0.206944 }
+, { "name" : "/model.22/cv2/conv/Conv + PWN(PWN(/model.22/cv2/act/Sigmoid), PWN(/model.22/cv2/act/Mul))", "timeMs" : 51.0916, "averageMs" : 0.0261338, "medianMs" : 0.026176, "percentage" : 0.488148 }
+, { "name" : "/model.23/cv2.2/cv2.2.0/conv/Conv + PWN(PWN(/model.23/cv2.2/cv2.2.0/act/Sigmoid), PWN(/model.23/cv2.2/cv2.2.0/act/Mul))", "timeMs" : 92.6867, "averageMs" : 0.0474101, "medianMs" : 0.0472, "percentage" : 0.885563 }
+, { "name" : "/model.23/cv2.2/cv2.2.1/conv/Conv + PWN(PWN(/model.23/cv2.2/cv2.2.1/act/Sigmoid), PWN(/model.23/cv2.2/cv2.2.1/act/Mul))", "timeMs" : 40.9115, "averageMs" : 0.0209266, "medianMs" : 0.020736, "percentage" : 0.390884 }
+, { "name" : "/model.23/cv2.2/cv2.2.2/Conv", "timeMs" : 20.1595, "averageMs" : 0.0103118, "medianMs" : 0.01024, "percentage" : 0.192611 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/Reshape_2", "timeMs" : 12.0886, "averageMs" : 0.00618343, "medianMs" : 0.006144, "percentage" : 0.115499 }
+, { "name" : "/model.23/Reshape_2", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/Reshape_2_copy_output", "timeMs" : 11.5283, "averageMs" : 0.00589685, "medianMs" : 0.005952, "percentage" : 0.110146 }
+, { "name" : "/model.23/cv3.2/cv3.2.0/cv3.2.0.0/conv/Conv", "timeMs" : 29.5253, "averageMs" : 0.0151024, "medianMs" : 0.014912, "percentage" : 0.282095 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(/model.23/cv3.2/cv3.2.0/cv3.2.0.0/act/Sigmoid), PWN(/model.23/cv3.2/cv3.2.0/cv3.2.0.0/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl163_0", "timeMs" : 15.269, "averageMs" : 0.00781025, "medianMs" : 0.007872, "percentage" : 0.145886 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/cv3.2/cv3.2.0/cv3.2.0.1/conv/Conv + PWN(PWN(/model.23/cv3.2/cv3.2.0/cv3.2.0.1/act/Sigmoid), PWN(/model.23/cv3.2/cv3.2.0/cv3.2.0.1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/cv3.2/cv3.2.0/cv3.2.0.1/conv/Conv + PWN(PWN(/model.23/cv3.2/cv3.2.0/cv3.2.0.1/act/Sigmoid), PWN(/model.23/cv3.2/cv3.2.0/cv3.2.0.1/act/Mul))", "timeMs" : 38.7883, "averageMs" : 0.0198406, "medianMs" : 0.019936, "percentage" : 0.370598 }
+, { "name" : "/model.23/cv3.2/cv3.2.1/cv3.2.1.0/conv/Conv", "timeMs" : 18.2835, "averageMs" : 0.00935218, "medianMs" : 0.009344, "percentage" : 0.174687 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(/model.23/cv3.2/cv3.2.1/cv3.2.1.0/act/Sigmoid), PWN(/model.23/cv3.2/cv3.2.1/cv3.2.1.0/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl168_0", "timeMs" : 14.2248, "averageMs" : 0.00727613, "medianMs" : 0.007264, "percentage" : 0.135909 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/cv3.2/cv3.2.1/cv3.2.1.1/conv/Conv + PWN(PWN(/model.23/cv3.2/cv3.2.1/cv3.2.1.1/act/Sigmoid), PWN(/model.23/cv3.2/cv3.2.1/cv3.2.1.1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/cv3.2/cv3.2.1/cv3.2.1.1/conv/Conv + PWN(PWN(/model.23/cv3.2/cv3.2.1/cv3.2.1.1/act/Sigmoid), PWN(/model.23/cv3.2/cv3.2.1/cv3.2.1.1/act/Mul))", "timeMs" : 30.804, "averageMs" : 0.0157565, "medianMs" : 0.015872, "percentage" : 0.294312 }
+, { "name" : "/model.23/cv3.2/cv3.2.2/Conv", "timeMs" : 21.656, "averageMs" : 0.0110772, "medianMs" : 0.010912, "percentage" : 0.206909 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/Reshape_5", "timeMs" : 12.4191, "averageMs" : 0.00635247, "medianMs" : 0.006176, "percentage" : 0.118656 }
+, { "name" : "/model.23/Reshape_5", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/Reshape_5_copy_output", "timeMs" : 11.5419, "averageMs" : 0.00590381, "medianMs" : 0.006048, "percentage" : 0.110276 }
+, { "name" : "/model.23/cv2.1/cv2.1.0/conv/Conv + PWN(PWN(/model.23/cv2.1/cv2.1.0/act/Sigmoid), PWN(/model.23/cv2.1/cv2.1.0/act/Mul))", "timeMs" : 115.198, "averageMs" : 0.0589249, "medianMs" : 0.059072, "percentage" : 1.10065 }
+, { "name" : "/model.23/cv2.1/cv2.1.1/conv/Conv + PWN(PWN(/model.23/cv2.1/cv2.1.1/act/Sigmoid), PWN(/model.23/cv2.1/cv2.1.1/act/Mul))", "timeMs" : 68.6761, "averageMs" : 0.0351284, "medianMs" : 0.034848, "percentage" : 0.656157 }
+, { "name" : "/model.23/cv2.1/cv2.1.2/Conv", "timeMs" : 25.215, "averageMs" : 0.0128977, "medianMs" : 0.012672, "percentage" : 0.240914 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/Reshape_1", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/Reshape_1", "timeMs" : 35.7616, "averageMs" : 0.0182924, "medianMs" : 0.0184, "percentage" : 0.341679 }
+, { "name" : "/model.23/Reshape_1_copy_output", "timeMs" : 30.3306, "averageMs" : 0.0155144, "medianMs" : 0.015456, "percentage" : 0.28979 }
+, { "name" : "/model.23/cv3.1/cv3.1.0/cv3.1.0.0/conv/Conv", "timeMs" : 39.1451, "averageMs" : 0.0200231, "medianMs" : 0.02016, "percentage" : 0.374006 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl182_0", "timeMs" : 21.6891, "averageMs" : 0.0110942, "medianMs" : 0.010944, "percentage" : 0.207225 }
+, { "name" : "/model.23/cv3.1/cv3.1.0/cv3.1.0.1/conv/Conv + PWN(PWN(/model.23/cv3.1/cv3.1.0/cv3.1.0.1/act/Sigmoid), PWN(/model.23/cv3.1/cv3.1.0/cv3.1.0.1/act/Mul))", "timeMs" : 46.1402, "averageMs" : 0.0236011, "medianMs" : 0.02352, "percentage" : 0.44084 }
+, { "name" : "/model.23/cv3.1/cv3.1.1/cv3.1.1.0/conv/Conv", "timeMs" : 34.5856, "averageMs" : 0.0176908, "medianMs" : 0.017728, "percentage" : 0.330443 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(/model.23/cv3.1/cv3.1.1/cv3.1.1.0/act/Sigmoid), PWN(/model.23/cv3.1/cv3.1.1/cv3.1.1.0/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl186_0", "timeMs" : 17.3487, "averageMs" : 0.008874, "medianMs" : 0.008736, "percentage" : 0.165756 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/cv3.1/cv3.1.1/cv3.1.1.1/conv/Conv + PWN(PWN(/model.23/cv3.1/cv3.1.1/cv3.1.1.1/act/Sigmoid), PWN(/model.23/cv3.1/cv3.1.1/cv3.1.1.1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/cv3.1/cv3.1.1/cv3.1.1.1/conv/Conv + PWN(PWN(/model.23/cv3.1/cv3.1.1/cv3.1.1.1/act/Sigmoid), PWN(/model.23/cv3.1/cv3.1.1/cv3.1.1.1/act/Mul))", "timeMs" : 44.4798, "averageMs" : 0.0227518, "medianMs" : 0.022528, "percentage" : 0.424977 }
+, { "name" : "/model.23/cv3.1/cv3.1.2/Conv", "timeMs" : 35.1958, "averageMs" : 0.018003, "medianMs" : 0.01808, "percentage" : 0.336274 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/Reshape_4", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/Reshape_4", "timeMs" : 41.2156, "averageMs" : 0.0210821, "medianMs" : 0.020864, "percentage" : 0.393789 }
+, { "name" : "/model.23/Reshape_4_copy_output", "timeMs" : 34.8808, "averageMs" : 0.0178419, "medianMs" : 0.017888, "percentage" : 0.333264 }
+, { "name" : "/model.23/cv2.0/cv2.0.0/conv/Conv + PWN(PWN(/model.23/cv2.0/cv2.0.0/act/Sigmoid), PWN(/model.23/cv2.0/cv2.0.0/act/Mul))", "timeMs" : 207.111, "averageMs" : 0.105939, "medianMs" : 0.106112, "percentage" : 1.97882 }
+, { "name" : "/model.23/cv2.0/cv2.0.1/conv/Conv + PWN(PWN(/model.23/cv2.0/cv2.0.1/act/Sigmoid), PWN(/model.23/cv2.0/cv2.0.1/act/Mul))", "timeMs" : 197.233, "averageMs" : 0.100886, "medianMs" : 0.100576, "percentage" : 1.88443 }
+, { "name" : "/model.23/cv2.0/cv2.0.2/Conv", "timeMs" : 67.061, "averageMs" : 0.0343023, "medianMs" : 0.034432, "percentage" : 0.640726 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/Reshape", "timeMs" : 61.239, "averageMs" : 0.0313243, "medianMs" : 0.031136, "percentage" : 0.5851 }
+, { "name" : "/model.23/Reshape", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/Reshape_copy_output", "timeMs" : 58.6251, "averageMs" : 0.0299873, "medianMs" : 0.030048, "percentage" : 0.560126 }
+, { "name" : "/model.23/dfl/Reshape + /model.23/dfl/Transpose", "timeMs" : 130.154, "averageMs" : 0.0665748, "medianMs" : 0.066496, "percentage" : 1.24354 }
+, { "name" : "/model.23/dfl/Softmax", "timeMs" : 88.7205, "averageMs" : 0.0453813, "medianMs" : 0.045088, "percentage" : 0.847668 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to /model.23/dfl/Softmax", "timeMs" : 76.3484, "averageMs" : 0.0390529, "medianMs" : 0.038912, "percentage" : 0.729461 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/dfl/conv/Conv", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/dfl/conv/Conv", "timeMs" : 55.0865, "averageMs" : 0.0281773, "medianMs" : 0.028288, "percentage" : 0.526317 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/dfl/Reshape_1", "timeMs" : 16.917, "averageMs" : 0.00865319, "medianMs" : 0.008448, "percentage" : 0.161631 }
+, { "name" : "/model.23/dfl/Reshape_1", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastCastSubCast_myl206_0", "timeMs" : 11.6055, "averageMs" : 0.00593631, "medianMs" : 0.005984, "percentage" : 0.110883 }
+, { "name" : "__myl_CastCastAddCast_myl207_0", "timeMs" : 11.0008, "averageMs" : 0.00562702, "medianMs" : 0.005632, "percentage" : 0.105106 }
+, { "name" : "__myl_CastCastSubCast_myl208_0", "timeMs" : 11.3976, "averageMs" : 0.00582996, "medianMs" : 0.005856, "percentage" : 0.108896 }
+, { "name" : "__myl_CastCastAddDivCast_myl209_0", "timeMs" : 10.8214, "averageMs" : 0.00553527, "medianMs" : 0.005568, "percentage" : 0.103392 }
+, { "name" : "/model.23/Div_1_output_0 copy", "timeMs" : 10.2457, "averageMs" : 0.00524078, "medianMs" : 0.005216, "percentage" : 0.0978913 }
+, { "name" : "__myl_CastCastMulCast_myl211_0", "timeMs" : 13.3658, "averageMs" : 0.00683675, "medianMs" : 0.006688, "percentage" : 0.127702 }
+, { "name" : "/model.23/cv3.0/cv3.0.0/cv3.0.0.0/conv/Conv", "timeMs" : 66.4117, "averageMs" : 0.0339702, "medianMs" : 0.033952, "percentage" : 0.634521 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(/model.23/cv3.0/cv3.0.0/cv3.0.0.0/act/Sigmoid), PWN(/model.23/cv3.0/cv3.0.0/cv3.0.0.0/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl214_0", "timeMs" : 56.0205, "averageMs" : 0.028655, "medianMs" : 0.028672, "percentage" : 0.53524 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/cv3.0/cv3.0.0/cv3.0.0.1/conv/Conv + PWN(PWN(/model.23/cv3.0/cv3.0.0/cv3.0.0.1/act/Sigmoid), PWN(/model.23/cv3.0/cv3.0.0/cv3.0.0.1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/cv3.0/cv3.0.0/cv3.0.0.1/conv/Conv + PWN(PWN(/model.23/cv3.0/cv3.0.0/cv3.0.0.1/act/Sigmoid), PWN(/model.23/cv3.0/cv3.0.0/cv3.0.0.1/act/Mul))", "timeMs" : 103.344, "averageMs" : 0.0528612, "medianMs" : 0.052992, "percentage" : 0.987382 }
+, { "name" : "/model.23/cv3.0/cv3.0.1/cv3.0.1.0/conv/Conv", "timeMs" : 98.2179, "averageMs" : 0.0502393, "medianMs" : 0.050208, "percentage" : 0.93841 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to PWN(PWN(/model.23/cv3.0/cv3.0.1/cv3.0.1.0/act/Sigmoid), PWN(/model.23/cv3.0/cv3.0.1/cv3.0.1.0/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastMulTanhMulAddMulCast_myl219_0", "timeMs" : 71.8354, "averageMs" : 0.0367445, "medianMs" : 0.036864, "percentage" : 0.686342 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/cv3.0/cv3.0.1/cv3.0.1.1/conv/Conv + PWN(PWN(/model.23/cv3.0/cv3.0.1/cv3.0.1.1/act/Sigmoid), PWN(/model.23/cv3.0/cv3.0.1/cv3.0.1.1/act/Mul))", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/cv3.0/cv3.0.1/cv3.0.1.1/conv/Conv + PWN(PWN(/model.23/cv3.0/cv3.0.1/cv3.0.1.1/act/Sigmoid), PWN(/model.23/cv3.0/cv3.0.1/cv3.0.1.1/act/Mul))", "timeMs" : 130.78, "averageMs" : 0.0668951, "medianMs" : 0.06688, "percentage" : 1.24952 }
+, { "name" : "/model.23/cv3.0/cv3.0.2/Conv", "timeMs" : 111.29, "averageMs" : 0.0569259, "medianMs" : 0.057088, "percentage" : 1.06331 }
+, { "name" : "Reformatting CopyNode for Input Tensor 0 to /model.23/Reshape_3", "timeMs" : 75.2803, "averageMs" : 0.0385065, "medianMs" : 0.038624, "percentage" : 0.719255 }
+, { "name" : "/model.23/Reshape_3", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model.23/Reshape_3_copy_output", "timeMs" : 70.829, "averageMs" : 0.0362297, "medianMs" : 0.036288, "percentage" : 0.676726 }
+, { "name" : "__myl_CastMulTanhMulAddCast_myl226_0", "timeMs" : 94.7467, "averageMs" : 0.0484638, "medianMs" : 0.048576, "percentage" : 0.905245 }
+, { "name" : "output0_cast_to_fp32", "timeMs" : 150.358, "averageMs" : 0.0769096, "medianMs" : 0.076864, "percentage" : 1.43658 }
+]

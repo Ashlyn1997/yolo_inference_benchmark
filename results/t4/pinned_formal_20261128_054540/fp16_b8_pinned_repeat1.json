@@ -1,0 +1,63 @@
+{
+  "environment": {
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+    "python": "3.13.16",
+    "torch": "2.11.0+cu130",
+    "torch_cuda": "13.0",
+    "cuda_available": true,
+    "gpu_index": 0,
+    "gpu": "Tesla T4",
+    "gpu_compute_capability": "7.5",
+    "ultralytics": "8.4.220",
+    "onnx": "1.21.0",
+    "onnxruntime": "1.30.0",
+    "tensorrt": "11.5.0.63",
+    "driver_version": "580.178.04",
+    "gpu_memory_total_mib": 15360.0,
+    "gpu_power_limit_w": 70.0,
+    "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+  },
+  "results": [
+    {
+      "backend": "tensorrt",
+      "batch_size": 8,
+      "image_size": [
+        640,
+        640
+      ],
+      "warmup_runs": 50,
+      "measured_runs": 500,
+      "precision": "fp16",
+      "preprocess_mean_ms": 44.91283164197375,
+      "inference_mean_ms": 24.21852941799625,
+      "inference_p50_ms": 24.339366500498727,
+      "inference_p95_ms": 24.818785599745752,
+      "inference_p99_ms": 25.394072019789746,
+      "postprocess_mean_ms": 19.18942317597066,
+      "end_to_end_mean_ms": 88.44150803999037,
+      "throughput_images_per_second": 330.3255892182858,
+      "cuda_memory_allocated_mib": 0.0,
+      "inference_stddev_ms": 0.9183046066948392,
+      "end_to_end_p50_ms": 86.90714700014723,
+      "end_to_end_p95_ms": 95.53925110076307,
+      "end_to_end_p99_ms": 99.00011910036483,
+      "end_to_end_stddev_ms": 4.172481233753663,
+      "images_per_second_per_watt": null,
+      "gpu_metrics": null
+    }
+  ],
+  "metadata": {
+    "mode": "pinned",
+    "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+    "engine": {
+      "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+      "size_bytes": 46282340,
+      "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+    },
+    "torch_threads": 2,
+    "opencv_threads": 1,
+    "gpu_monitor_enabled": false,
+    "output_check_passed": true,
+    "max_abs_output_error": 0.0
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "environment": {
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+    "python": "3.13.16",
+    "torch": "2.11.0+cu130",
+    "torch_cuda": "13.0",
+    "cuda_available": true,
+    "gpu_index": 0,
+    "gpu": "Tesla T4",
+    "gpu_compute_capability": "7.5",
+    "ultralytics": "8.4.220",
+    "onnx": "1.21.0",
+    "onnxruntime": "1.30.0",
+    "tensorrt": "11.5.0.63",
+    "driver_version": "580.178.04",
+    "gpu_memory_total_mib": 15360.0,
+    "gpu_power_limit_w": 70.0,
+    "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+  },
+  "results": [
+    {
+      "backend": "tensorrt",
+      "batch_size": 8,
+      "image_size": [
+        640,
+        640
+      ],
+      "warmup_runs": 50,
+      "measured_runs": 500,
+      "precision": "fp16",
+      "preprocess_mean_ms": 37.62261225000111,
+      "inference_mean_ms": 33.19594865399813,
+      "inference_p50_ms": 29.754457000080947,
+      "inference_p95_ms": 42.8654142498317,
+      "inference_p99_ms": 43.957737230084604,
+      "postprocess_mean_ms": 19.16299226799947,
+      "end_to_end_mean_ms": 90.10789738000312,
+      "throughput_images_per_second": 240.9932634666995,
+      "cuda_memory_allocated_mib": 0.0,
+      "inference_stddev_ms": 6.5112986345631185,
+      "end_to_end_p50_ms": 83.76022050015308,
+      "end_to_end_p95_ms": 111.73164684992115,
+      "end_to_end_p99_ms": 117.64777256998968,
+      "end_to_end_stddev_ms": 12.981916480943855,
+      "images_per_second_per_watt": null,
+      "gpu_metrics": null
+    }
+  ],
+  "metadata": {
+    "run_tag": "monitor_off_b8_repeat2",
+    "command": [
+      "/kaggle/working/yolo_inference_benchmark/yolo_benchmark/cli.py",
+      "benchmark",
+      "--engine",
+      "artifacts/t4/yolo11n_t4_fp16_b8.engine",
+      "--source",
+      "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+      "--imgsz",
+      "640",
+      "--batch",
+      "8",
+      "--device",
+      "cuda:0",
+      "--expected-gpu",
+      "T4",
+      "--precision",
+      "fp16",
+      "--warmup",
+      "50",
+      "--runs",
+      "500",
+      "--run-tag",
+      "monitor_off_b8_repeat2",
+      "--raw-output",
+      "results/t4/monitor_ab_20261128_051057/raw/monitor_off_b8_repeat2.csv",
+      "--output",
+      "results/t4/monitor_ab_20261128_051057/monitor_off_b8_repeat2.json"
+    ],
+    "source": "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+    "artifacts": [
+      {
+        "backend": "tensorrt",
+        "path": "/kaggle/working/yolo_inference_benchmark/artifacts/t4/yolo11n_t4_fp16_b8.engine",
+        "size_bytes": 46282340,
+        "sha256": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+      }
+    ]
+  }
+}
