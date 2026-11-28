@@ -10,6 +10,8 @@
 
 仓库保留原 NVIDIA L20 实验资产；新增的 T4 流程使用独立的 `artifacts/t4`、`results/t4` 和 `runs/t4`，不会覆盖 L20 数据。完整步骤见 [NVIDIA T4 Benchmark Runbook](docs/T4_RUNBOOK.md)。
 
+T4 输出回传优化的完整排查过程、原始数据核验和结果图见 [T4 实验报告](reports/T4报告.md#10-输出回传优化与最终统一条件复测2026-11-28)。最终三轮独立进程复测中，Batch 8 复用 pinned 输出使推理吞吐提高 15.76%、E2E 耗时降低 6.59%；收益适用于报告中的固定批次同步消费条件。
+
 ## 目录结构
 
 ```text
@@ -245,6 +247,36 @@ pytest -q
 ```
 
 单元测试不需要模型。后处理使用项目内的纯PyTorch NMS，不依赖torchvision的C++/CUDA扩展。
+
+## T4 最终结果可视化
+
+CPU 环境只安装可选绘图依赖即可，不需要 CUDA、TensorRT 或训练依赖：
+
+```bash
+python -m pip install -r requirements-plot.txt
+python scripts/plot_t4_pinned_results.py \
+  results/t4/pinned_final_20261128_062057_514198
+```
+
+脚本先从逐轮 CSV 重算并核对 summary/comparison JSON，再输出吞吐、后端调用延迟、
+E2E 延迟和阶段分解四张 180 DPI PNG，保存到该结果目录的 `plots/`。
+误差线为各轮均值的总体标准差，不是置信区间。核验记录为 `plots/verification.json`，
+原始 CSV/JSON 不会被改写。只做核验可追加 `--verify-only`，无需安装绘图库。
+
+图已嵌入 [T4 实验报告](reports/T4报告.md)，具体结论和输出缓冲区生命周期限制以报告为准。
+
+接下来的三档输出缓冲区实验使用独立脚本，不覆盖上述历史数据：
+
+```bash
+python scripts/run_t4_output_buffer_comparison.py \
+  --source /path/to/coco2017/val2017
+```
+
+默认 Batch 4/8 × original/reuse_pageable/reuse_pinned × 3 轮，共 18 次独立进程。
+正式结果不含 CUDA Event 插桩；额外的 Event 诊断用
+`scripts/profile_t4_output_buffers.py --cuda-events` 单独执行。
+完整 Kaggle 单元格、计时边界、输出目录和验收说明见
+[T4 操作手册第 10 节](docs/T4_RUNBOOK.md#10-三档输出缓冲区对照与-cuda-event-诊断新增实验)。
 
 ## 常见问题
 

@@ -225,3 +225,158 @@ subprocess.run([
 出现 `ALL 12 RUNS COMPLETE` 后本轮才全部结束。最终报告只使用本轮统一条件
 的数据，不与保留校验数组的旧实验混合平均。该运行器仍属于同步消费输出的实验
 实现，不改变正式 `TensorRTBackend` 的输出所有权契约。
+
+## 10. 三档输出缓冲区对照与 CUDA Event 诊断（新增实验）
+
+这一节使用新脚本，保留第 9 节 worker、结果和 SHA256。依赖仍为当前项目依赖，
+不需要安装 Nsight、NVML 或额外的 CUDA Python 包，也不重新构建 Engine。
+请先完成 Engine/工具备份，再把新代码同步到 Kaggle。
+
+| 模式 | CPU 输出内存 | 是否复用 | 输出所有权 |
+| --- | --- | --- | --- |
+| V1 `original` | Pageable | 否 | 独立输出 |
+| V2 `reuse_pageable` | Pageable | 是 | 下一次 infer 前消费完的借用视图 |
+| V3 `reuse_pinned` | Pinned | 是 | 下一次 infer 前消费完的借用视图 |
+
+输入传输、输入转换、GPU 输出逐次分配、同步点和后处理保持原有逻辑。
+V1 正式 control 直接调用原后端；V2/V3 使用相同实验执行路径，只改变 CPU
+输出分配策略。它们仍使用阻塞式 CPU 输出 copy，不是异步流水线。
+V2/V1 比较本实现下的复用路径，V3/V2 比较复用前提下的 Pinned 收益；
+三档实验不能完整估计两个因素的交互效应，也不提供相同输出所有权的公平服务基准。
+
+### 10.1 先运行未插桩的 18 次正式对照
+
+在 Notebook 新建 Python 单元格：
+
+```python
+%cd /kaggle/working/yolo_inference_benchmark
+
+import subprocess
+import sys
+
+subprocess.run([
+    sys.executable, "-u", "scripts/run_t4_output_buffer_comparison.py",
+    "--source", "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+    "--batches", "4,8",
+    "--repeats", "3",
+    "--warmup", "50",
+    "--runs", "500",
+    "--device", "cuda:0",
+], check=True)
+```
+
+默认复用 `artifacts/t4/yolo11n_t4_fp16_b4.engine` 和 b8 Engine。
+可通过 `--engine-template` 更改路径，例如 `/kaggle/working/.../b{batch}.engine`。
+这两份 Engine 应来自本次 T4 FP16 构建；脚本不会重新推断 Engine 内每层精度。
+支持 `--imgsz` 和 `--output-dir`，但不能覆盖非空输出目录。
+
+每个配置启动独立进程，三轮循环轮换 V1/V2/V3 的执行先后，每轮交替 batch 顺序。
+每次校验原后端与实验输出 allclose，并在 warmup 前释放校验数组；用于正式复用的
+CPU output buffer 会保留。正式计时不创建 CUDA Events，不启动 GPU monitor。
+仍然使用同一固定图片批次，不代表遍历数据集。
+
+每组开始时显示 `[n/18]` 和日志路径，完成后显示 inference/E2E；单组测量期间
+不逐次打印。只有出现 `ALL 18 RUNS COMPLETE` 才表示整轮结束。不要同时运行
+其他性能实验或重复启动同一单元格。
+
+```text
+results/t4/output_buffers_<timestamp>/
+├── provenance.json             # worker/runner/核心代码及 Engine hash
+├── execution_order.json        # 命令、顺序、返回码
+├── comparison.json             # 三档跨轮汇总、三组配对收益、逐轮记录
+├── summary.md
+├── logs/
+│   └── b8_reuse_pinned_repeat1.log
+└── b8_reuse_pinned_repeat1/
+    ├── summary.json
+    └── control_latency.csv     # 500 条正式样本；其他 17 组结构相同
+```
+
+汇总核对同 batch 的 Engine 与实际图片 hash、图片尺寸、环境、线程、CPU affinity、
+测量设置和校验策略。源代码或 Engine 在执行期间变化也会拒绝总汇总。
+失败时保留已经写出的结果、日志和执行清单，不输出成功总汇总。
+
+报告分别列出 V2/V1、V3/V2、V3/V1 的后端延迟、推理吞吐和 E2E 收益，负值表示
+退化。吞吐仍是各轮推理吞吐的平均；P95 是各轮 P95 的平均，不是 pooled P95。
+三轮均值、总体标准差和 CV 不构成置信区间或显著性结论。
+
+### 10.2 再运行独立 CUDA Event 诊断
+
+正式结果完成后，在另一个单元格执行六组诊断。每组先跑未插桩 control，再额外
+跑 Event phase；两阶段各自 warmup 50 次并正式采样 100 次。诊断有意使用较少
+采样来检查机制，不能与上一轮 500 次正式对照混合平均。
+
+```python
+from datetime import datetime, timezone
+from pathlib import Path
+import subprocess
+import sys
+
+output = Path("results/t4") / (
+    "output_buffer_events_" + datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S_%f")
+)
+for batch in (4, 8):
+    for mode in ("original", "reuse_pageable", "reuse_pinned"):
+        subprocess.run([
+            sys.executable, "-u", "scripts/profile_t4_output_buffers.py",
+            "--engine", f"artifacts/t4/yolo11n_t4_fp16_b{batch}.engine",
+            "--source", "/kaggle/input/datasets/awsaf49/coco-2017-dataset/coco2017/val2017",
+            "--batch", str(batch), "--mode", mode,
+            "--warmup", "50", "--runs", "100", "--device", "cuda:0",
+            "--cuda-events",
+            "--output-dir", str(output / f"b{batch}_{mode}"),
+        ], check=True)
+
+print("ALL 6 DIAGNOSTICS COMPLETE:", output)
+```
+
+每组生成：
+
+- `summary.json`、`control_latency.csv`：未插桩 control。
+- `cuda_event_samples.csv`：仅正式测量期的逐次 CUDA Event 及主机分段计时。
+- `cuda_event_summary.json`：诊断均值、计时解释和 Event phase 的 benchmark 汇总。
+- `event_latency.csv`：Event phase 外层前处理、后端、后处理及 E2E 耗时。
+
+CUDA Event 字段：
+
+| 字段 | 测量区间 |
+| --- | --- |
+| `h2d_event_ms` | 输入 `.to(device)` 前后 |
+| `input_conversion_event_ms` | 输入 dtype/contiguous 转换 |
+| `execution_event_ms` | TensorRT enqueue 前后的当前 stream 区间 |
+| `output_conversion_event_ms` | 输出 `.float()` 前后 |
+| `d2h_event_ms` | CPU 输出获取/copy 前后 |
+
+Event phase 不在 warmup 期间记录样本，结束 Event 完成后才读取 elapsed time。
+同时保存 `h2d_call_wall_ms`、`shape_buffers_wall_ms`、`enqueue_call_wall_ms`、
+`device_sync_wait_wall_ms`、`host_output_call_wall_ms` 等主机时间。
+`backend_wall_before_event_readout_ms` 不包含 elapsed-time 读取及采样整理；
+`event_latency.csv` 的外层 inference 包含这些诊断开销。
+
+Event 测量的是指定 stream 上两条标记之间的经过时间，可能包含主机提交间隙，
+不是所有 kernel 的耗时总和。尤其对于 Pageable 内存，CPU 分配/staging 不会被
+完整、独立地归入纯 DMA 时间；不能把 `d2h_event_ms` 当作 PCIe 纯传输带宽。
+设备转换无实际工作时，Event 仍可能记录少量标记开销。
+各 Event 区间不能直接相加等同 E2E；也不能将主机等待与设备执行相加后重复归因。
+
+诊断保留原有设备同步和阻塞输出 copy，没有引入多 Stream 或异步重叠。
+Event 结果只用于帮助归因，正式收益使用 10.1 的未插桩数据。
+当前仅检查固定批次输出 allclose，不代表新增了全量 mAP 验证或并发安全接口。
+
+### 10.3 结果保存和下一步
+
+回收整个 `output_buffers_<timestamp>` 和 `output_buffer_events_<timestamp>`，保留
+原始 CSV/JSON、日志、源代码版本及 Engine。仓库的 `*.log` 忽略规则可能使日志
+不会随普通 `git add` 提交，备份压缩包应包含 `logs/`；需要进 Git 时显式检查。
+无需重建或覆盖历史 `pinned_final_*` 结果。
+
+完成后先核对三档的后端与 E2E 是否同向改善，再看 V2/V1 和 V3/V2 的差异。
+这一步不提前承诺提升比例。后续才补不同图片连续推理、输出所有权和全量精度回归。
+
+本地不需要 GPU 的相关测试：
+
+```bash
+python -m unittest tests.test_output_buffer_comparison -v
+# 安装了项目完整测试依赖时，也可运行：
+pytest -q
+```

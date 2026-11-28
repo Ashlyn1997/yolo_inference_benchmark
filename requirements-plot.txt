@@ -1,0 +1,2 @@
+# Optional, CPU-only result visualization. Not needed in the T4 benchmark runtime.
+matplotlib>=3.7,<4

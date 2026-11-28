@@ -1,0 +1,59 @@
+{
+  "run_directory": "/Users/tutu/Documents/workspace/yolo_inference_benchmark/results/t4/pinned_final_20261128_062057_514198",
+  "verified_cases": 12,
+  "verified_csv_rows": 6000,
+  "verified_csv_metrics": "stage means, standard deviations, P50/P95/P99, inference throughput",
+  "aggregate_matches_raw": true,
+  "worker_sha256": "ead9fbd6bec5d76a8b0485728c7a2e90d2faefdf5c643e23351d568b57727302",
+  "local_worker_sha256": "ead9fbd6bec5d76a8b0485728c7a2e90d2faefdf5c643e23351d568b57727302",
+  "worker_matches_local": true,
+  "maximum_recorded_output_error": 0.0,
+  "missing_logs": [
+    "b4_original_repeat1",
+    "b4_original_repeat2",
+    "b4_original_repeat3",
+    "b4_pinned_repeat1",
+    "b4_pinned_repeat2",
+    "b4_pinned_repeat3",
+    "b8_original_repeat1",
+    "b8_original_repeat2",
+    "b8_original_repeat3",
+    "b8_pinned_repeat1",
+    "b8_pinned_repeat2",
+    "b8_pinned_repeat3"
+  ],
+  "environment": {
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+    "python": "3.13.16",
+    "torch": "2.11.0+cu130",
+    "torch_cuda": "13.0",
+    "cuda_available": true,
+    "gpu_index": 0,
+    "gpu": "Tesla T4",
+    "gpu_compute_capability": "7.5",
+    "ultralytics": "8.4.220",
+    "onnx": "1.21.0",
+    "onnxruntime": "1.30.0",
+    "tensorrt": "11.5.0.63",
+    "driver_version": "580.178.04",
+    "gpu_memory_total_mib": 15360.0,
+    "gpu_power_limit_w": 70.0,
+    "nvidia_smi": "Tesla T4, 580.178.04, 15360, 70.00, 7.5"
+  },
+  "numpy_version": "2.1.3",
+  "opencv_version": "4.14.0",
+  "engine_sha256_by_batch": {
+    "4": "2085799eeafa710ba76defc8df1eaec4c5267a8b7a5148f2f8095aa940321bf5",
+    "8": "0d27b22472ec292ba638f55d7f20f0855e7f4f667513a7158cf4c47adfcd5b39"
+  },
+  "notes": [
+    "CSV verification does not re-execute GPU inference or reproduce mAP.",
+    "Error bars in figures show population stddev of run means, not confidence intervals."
+  ],
+  "figures": [
+    "output_buffer_throughput.png",
+    "output_buffer_latency.png",
+    "output_buffer_e2e.png",
+    "output_buffer_breakdown.png"
+  ]
+}
